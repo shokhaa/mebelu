@@ -15,8 +15,6 @@ class m210430_110904_create_category_table extends Migration
         $this->createTable('{{%category}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()->unique(),
-            'description' => $this->text(),
-            'parent_id' => $this->integer()->notNull(),
             'category_icon' => $this->string()->defaultValue('f-icon-office'),
             'created_at' => $this->timestamp()
         ]);

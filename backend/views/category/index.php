@@ -25,8 +25,8 @@ $this->title = Yii::t('app', 'Categories');
 
             'id',
             'name',
-            'description:ntext',
-            'parent_id',
+            'category_icon',
+
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

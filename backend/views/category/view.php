@@ -28,8 +28,6 @@ $this->title = $model->name;
         'attributes' => [
             'id',
             'name',
-            'description:ntext',
-            'parent_id',
             'category_icon',
             'created_at',
         ],

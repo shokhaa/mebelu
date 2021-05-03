@@ -21,8 +21,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description') ?>
 
-    <?= $form->field($model, 'parent_id') ?>
-
     <?= $form->field($model, 'category_icon') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>

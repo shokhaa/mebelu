@@ -9,8 +9,6 @@ use Yii;
  *
  * @property int $id
  * @property string $name
- * @property string|null $description
- * @property int $parent_id
  * @property string|null $category_icon
  * @property string $created_at
  */
@@ -30,9 +28,7 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'parent_id'], 'required'],
-            [['description'], 'string'],
-            [['parent_id'], 'integer'],
+            ['name', 'required'],
             [['created_at'], 'safe'],
             [['name', 'category_icon'], 'string', 'max' => 255],
             [['name'], 'unique'],
@@ -47,8 +43,6 @@ class Category extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'description' => Yii::t('app', 'Description'),
-            'parent_id' => Yii::t('app', 'Parent ID'),
             'category_icon' => Yii::t('app', 'Category Icon'),
             'created_at' => Yii::t('app', 'Created At'),
         ];
