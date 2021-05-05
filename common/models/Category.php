@@ -47,4 +47,10 @@ class Category extends \yii\db\ActiveRecord
             'created_at' => Yii::t('app', 'Created At'),
         ];
     }
+
+    public function getProducts(){
+        return $this->hasMany(Product::className(), ['category_id' => 'id']);
+    }
+
+
 }

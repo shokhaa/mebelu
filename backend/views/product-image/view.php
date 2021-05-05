@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\ProductImage */
 
-$this->title = $model->name;
+$this->title = $model->image_url;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="product-image-view">
@@ -26,7 +26,7 @@ $this->title = $model->name;
         'model' => $model,
         'attributes' => [
             'id',
-            'name',
+            'image_url',
             'product_id',
         ],
     ]) ?>

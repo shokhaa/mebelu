@@ -18,7 +18,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sales_procent')->textInput() ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->dropDownList(
+        [
+            '1' => 'simple',
+            '2' => 'famous',
+            '3' => 'new',
+            '4' => 'sale'
+        ],
+        ['prompt' => 'Tanlang']
+    ) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 

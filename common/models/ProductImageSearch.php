@@ -18,7 +18,7 @@ class ProductImageSearch extends ProductImage
     {
         return [
             [['id', 'product_id'], 'integer'],
-            [['name'], 'safe'],
+            [['image_url'], 'safe'],
         ];
     }
 
@@ -62,7 +62,7 @@ class ProductImageSearch extends ProductImage
             'product_id' => $this->product_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'image_url', $this->image_url]);
 
         return $dataProvider;
     }

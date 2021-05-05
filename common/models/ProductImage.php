@@ -8,11 +8,13 @@ use Yii;
  * This is the model class for table "product_image".
  *
  * @property int $id
- * @property string $name
+ * @property string $image_url
  * @property int|null $product_id
  */
 class ProductImage extends \yii\db\ActiveRecord
 {
+
+    public $imageFile;
     /**
      * {@inheritdoc}
      */
@@ -27,10 +29,11 @@ class ProductImage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['image_url', 'product_id'], 'required'],
             [['product_id'], 'integer'],
-            [['name'], 'string', 'max' => 255],
-            [['name'], 'unique'],
+            [['image_url'], 'file', 'skipOnEmpty' => false, 'extensions' => 'jpg,png,gif' ],
+            [['image_url'], 'string', 'max' => 255],
+            [['image_url'], 'unique'],
         ];
     }
 
@@ -41,8 +44,20 @@ class ProductImage extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
+            'image_url' => Yii::t('app', 'Image url'),
             'product_id' => Yii::t('app', 'Product ID'),
         ];
+    }
+    public function getProduct(){
+        return $this->hasOne(Product::className(), ['id' => 'product_id']);
+    }
+    public function upload()
+    {
+        if ($this->validate()) {
+            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

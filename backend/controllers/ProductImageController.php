@@ -2,9 +2,11 @@
 
 namespace backend\controllers;
 
+use common\models\Product;
 use Yii;
 use common\models\ProductImage;
 use common\models\ProductImageSearch;
+use yii\base\BaseObject;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -75,16 +77,31 @@ class ProductImageController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+    public function actionUpload()
+    {
+        $model = new ProductImage();
+
+        if (Yii::$app->request->isPost) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if ($model->upload()) {
+                // file is uploaded successfully
+                return $this->redirect(['index', 'id' => $model->id]);
+            }
+        }
+
+        return $this->render('upload', ['model' => $model]);
+    }
     public function actionCreate()
     {
         $model = new ProductImage();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->name = UploadedFile::getInstance($model, 'name');
-            if($model->validate()){
-                $model->name->saveAs('uploads'.$model->name->baseName.'.'.$model->name->extension);
+            $imageFile = UploadedFile::getInstance($model, 'image_url');
+            if (isset($imageFile->size)){
+                $imageFile->saveAs('uploads/'.$model->product->name.'.'.$imageFile->extension);
             }
-            $model->save();
+            $model->image_url = $model->product->name.'.'.$imageFile->extension;
+            $model->save(false);
             return $this->redirect(['index', 'id' => $model->id]);
         }
 
@@ -103,11 +120,15 @@ class ProductImageController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $imageFile = UploadedFile::getInstance($model, 'image_url');
+            if (isset($imageFile->size)){
+                $imageFile->saveAs('uploads/'.$model->product->name.'.'.$imageFile->extension);
+            }
+            $model->image_url = $model->product->name.'.'.$imageFile->extension;
+            $model->save(false);
+            return $this->redirect(['index', 'id' => $model->id]);
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);

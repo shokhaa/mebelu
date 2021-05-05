@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $model common\models\ProductImage */
 
 $this->title = Yii::t('app', 'Update Product Image: {name}', [
-    'name' => $model->name,
+    'name' => $model->image_url,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Product Images'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->image_url, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="product-image-update">

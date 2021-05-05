@@ -1,6 +1,6 @@
 <!-- ========================  Main header ======================== -->
-
-<section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
+<?= $url = Yii::$app->homeUrl.'mebelu/template/';?>
+<section class="main-header" style="background-image:url(<?= $url?>assets/images/gallery-2.jpg)">
     <header class="hidden">
         <div class="container">
             <h1 class="h2 title">Category</h1>
@@ -33,7 +33,7 @@
                     <div class="figure-block">
                         <div class="image">
                             <a href="products-grid.html">
-                                <img src="assets/images/product-1.png" alt="" width="360" />
+                                <img src="<?= $url?>assets/images/product-1.png" alt="" width="360" />
                             </a>
                         </div>
                         <div class="text">
@@ -52,7 +52,7 @@
                     <div class="figure-block">
                         <div class="image">
                             <a href="products-grid.html">
-                                <img src="assets/images/product-2.png" alt="" width="360" />
+                                <img src="<?= $url?>assets/images/product-2.png" alt="" width="360" />
                             </a>
                         </div>
                         <div class="text">
@@ -71,7 +71,7 @@
                     <div class="figure-block">
                         <div class="image">
                             <a href="products-grid.html">
-                                <img src="assets/images/product-3.png" alt="" width="360" />
+                                <img src="<?= $url?>assets/images/product-3.png" alt="" width="360" />
                             </a>
                         </div>
                         <div class="text">
@@ -90,7 +90,7 @@
                     <div class="figure-block">
                         <div class="image">
                             <a href="products-grid.html">
-                                <img src="assets/images/product-4.png" alt="" width="360" />
+                                <img src="<?= $url?>assets/images/product-4.png" alt="" width="360" />
                             </a>
                         </div>
                         <div class="text">
@@ -109,7 +109,7 @@
                     <div class="figure-block">
                         <div class="image">
                             <a href="products-grid.html">
-                                <img src="assets/images/product-5.png" alt="" width="360" />
+                                <img src="<?= $url?>assets/images/product-5.png" alt="" width="360" />
                             </a>
                         </div>
                         <div class="text">
@@ -128,7 +128,7 @@
                     <div class="figure-block">
                         <div class="image">
                             <a href="products-grid.html">
-                                <img src="assets/images/product-6.png" alt="" width="360" />
+                                <img src="<?= $url?>assets/images/product-6.png" alt="" width="360" />
                             </a>
                         </div>
                         <div class="text">

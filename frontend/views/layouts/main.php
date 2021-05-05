@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use common\models\Category;
+use frontend\models\CategoryHelper;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -110,7 +111,7 @@ AppAsset::register($this);
                         <!-- Furniture icons in dropdown-->
 
                         <li>
-                            <a href="category.html">
+                            <a href="site/category">
                                 Katalog
                                 <span class="open-dropdown">
                                     <i class="fa fa-angle-down"></i>
@@ -124,21 +125,16 @@ AppAsset::register($this);
                                             <div class="row">
 
                                                 <!--icon item-->
-<?=
-$categories = Category::find()->all();
-foreach ($categories as $category){ ?>
-    <div class="col-sm-3 col-xs-6">
-        <a href="category/<?php $category->name;?>">
-            <figure>
-                <i class="f-icon f-icon- <?php $category->category_icon ?>"></i>
-                <figcaption><?php $category->name ?>
-                </figcaption>
-            </figure>
-        </a>
-    </div>
-<?php
-}
-?>
+                                                <?php $categories = (new \yii\db\Query())->from('category')->all();
+                                                foreach ($categories as $category){
+
+                                                    echo '    <div class="col-sm-3 col-xs-6">
+        <a href="category/' . $category['name']. '">
+    <figure><i class="f-icon f-icon-' . $category['category_icon'] . '"></i>
+    <figcaption>' . $category['name'] .'
+    </figcaption></figure></a></div>';
+                                                }
+                                                ?>
 
 
 
@@ -148,9 +144,9 @@ foreach ($categories as $category){ ?>
                                 </div> <!--/navbar-box-->
                             </div> <!--/navbar-dropdown-->
                         </li>
-                        <li><a href="index.html">Kontaktlar</a></li>
-                        <li><a href="index.html">Maqolalar</a></li>
-                        <li><a href="index.html">Video maqolalar</a></li>
+                        <li><a href="site/index">Kontaktlar</a></li>
+                        <li><a href="site/index">Maqolalar</a></li>
+                        <li><a href="site/index">Video maqolalar</a></li>
                         <li>
                             <div style="">
                                 <a style="display: inline-block; background-color: #ffbb00; padding: 7px; border-radius: 2px; color: white" href="tel:+998977454255">+998977454255</a>

@@ -30,7 +30,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'price'], 'required'],
+            [['name', 'price', 'sales_procent', 'status'], 'required'],
             [['sales_procent', 'status'], 'integer'],
             [['description'], 'string'],
             [['name', 'price'], 'string', 'max' => 255],
@@ -52,5 +52,9 @@ class Product extends \yii\db\ActiveRecord
             'status' => Yii::t('app', 'Status'),
             'description' => Yii::t('app', 'Description'),
         ];
+    }
+
+    public function getProductImages(){
+        return $this->hasMany(ProductImage::className(), ['product_id', 'id']);
     }
 }
