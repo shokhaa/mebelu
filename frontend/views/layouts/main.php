@@ -14,7 +14,7 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 ?>
-<?php $url = Yii::$app->homeUrl.'mebelu/template/';?>
+<?php $url = Yii::$app->homeUrl."mebelu/template/"; ?>
 <?php $this->beginPage() ?>
 
 
@@ -85,7 +85,7 @@ AppAsset::register($this);
 
                 <!-- Setup your logo here-->
 
-                <a href="index.html" class="logo">
+                <a href="/" class="logo">
                     <img src="<?= $url?>assets/images/logo.png" alt="logotip image" />
                 </a>
 
@@ -129,7 +129,7 @@ AppAsset::register($this);
                                                 foreach ($categories as $category){
 
                                                     echo '    <div class="col-sm-3 col-xs-6">
-        <a href="category/' . $category['name']. '">
+        <a href="category/' . $category['id']. '">
     <figure><i class="f-icon f-icon-' . $category['category_icon'] . '"></i>
     <figcaption>' . $category['name'] .'
     </figcaption></figure></a></div>';
@@ -215,17 +215,17 @@ AppAsset::register($this);
             <div class="cart-wrapper">
                 <div class="checkout">
                     <div class="clearfix">
-
-                        <!--cart item-->
-
-                        <div class="row">
+<?php $products = (new \yii\db\Query())->from('product')->all();
+foreach ($products as $product) {
+//                        <!--cart item-->
+echo '<div class="row">
 
                             <div class="cart-block cart-block-item clearfix">
                                 <div class="image">
-                                    <a href="product.html"><img src="<?=$url?>assets/images/product-1.png" alt="" /></a>
+                                    <a href="product.html"><img src="'.$url. 'assets/images/product-1.png" alt="" /></a>
                                 </div>
                                 <div class="title">
-                                    <div><a href="product.html">Green corner</a></div>
+                                    <div><a href="product.html">'.$product['name'].'</a></div>
                                     <small>Green corner</small>
                                 </div>
                                 <div class="quantity">
@@ -237,70 +237,10 @@ AppAsset::register($this);
                                 </div>
                                 <!--delete-this-item-->
                                 <span class="icon icon-cross icon-delete"></span>
-                            </div>
+                            </div>';
 
-                            <!--cart item-->
+ } ?>
 
-                            <div class="cart-block cart-block-item clearfix">
-                                <div class="image">
-                                    <a href="product.html"><img src="<?=$url?>assets/images/product-2.png" alt="" /></a>
-                                </div>
-                                <div class="title">
-                                    <div><a href="product.html">Green corner</a></div>
-                                    <small>Green corner</small>
-                                </div>
-                                <div class="quantity">
-                                    <input type="number" value="2" class="form-control form-quantity" />
-                                </div>
-                                <div class="price">
-                                    <span class="final">$ 1.998</span>
-                                    <span class="discount">$ 2.666</span>
-                                </div>
-                                <!--delete-this-item-->
-                                <span class="icon icon-cross icon-delete"></span>
-                            </div>
-
-                            <!--cart item-->
-
-                            <div class="cart-block cart-block-item clearfix">
-                                <div class="image">
-                                    <a href="product.html"><img src="assets/images/product-3.png" alt="" /></a>
-                                </div>
-                                <div class="title">
-                                    <div><a href="product.html">Green corner</a></div>
-                                    <small>Green corner</small>
-                                </div>
-                                <div class="quantity">
-                                    <input type="number" value="2" class="form-control form-quantity" />
-                                </div>
-                                <div class="price">
-                                    <span class="final">$ 1.998</span>
-                                    <span class="discount">$ 2.666</span>
-                                </div>
-                                <!--delete-this-item-->
-                                <span class="icon icon-cross icon-delete"></span>
-                            </div>
-
-                            <!--cart item-->
-
-                            <div class="cart-block cart-block-item clearfix">
-                                <div class="image">
-                                    <a href="product.html"><img src="assets/images/product-4.png" alt="" /></a>
-                                </div>
-                                <div class="title">
-                                    <div><a href="product.html">Green corner</a></div>
-                                    <small>Green corner</small>
-                                </div>
-                                <div class="quantity">
-                                    <input type="number" value="2" class="form-control form-quantity" />
-                                </div>
-                                <div class="price">
-                                    <span class="final">$ 1.998</span>
-                                    <span class="discount">$ 2.666</span>
-                                </div>
-                                <!--delete-this-item-->
-                                <span class="icon icon-cross icon-delete"></span>
-                            </div>
                         </div>
 
                         <hr />

@@ -1,8 +1,8 @@
-
+<?php $url = Yii::$app->homeUrl."mebelu/template/"; ?>
 <body>
 
     <!-- ========================  Header content ======================== -->
-<?= $url = Yii::$app->homeUrl.'mebelu/template/';?>
+
     <section class="header-content">
 
         <div class="owl-slider">
@@ -105,9 +105,9 @@
             <header>
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8 text-center">
-                        <h2 class="title">Popular products</h2>
+                        <h2 class="title">Ommabop mahsulotlar</h2>
                         <div class="text">
-                            <p>Check out our latest collections</p>
+                            <p>Eng xaridorgir tovarlar</p>
                         </div>
                     </div>
                 </div>
@@ -117,14 +117,20 @@
 
                 <!-- === product-item === -->
 
-                <div class="col-md-4 col-xs-6">
+
+                <?php $products = (new \yii\db\Query())->from('product')->all(); ?>
+<?php                foreach ($products as $product) {
+                    if ($product['status'] == 2){
+                        //                        <!--cart item-->
+                        $sales_price =strval( $product['price']*($product['sales_procent']/100));
+                        echo '<div class="col-md-4 col-xs-6">
 
                     <article>
                         <div class="info">
                                 <span class="add-favorite added">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                                    <a href="javascript:void(-1);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                 </span>
-                            <span>
+                           <span>
                                     <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                 </span>
                         </div>
@@ -134,172 +140,25 @@
                         <div class="figure-grid">
                             <div class="image">
                                 <a href="#productid1" class="mfp-open">
-                                    <img src="<?=$url?>assets/images/product-1.png" alt="" width="360" />
+                                    <img src="'.$url.'assets/images/product-1.png" alt="" width="360" />
                                 </a>
                             </div>
                             <div class="text">
-                                <h2 class="title h4"><a href="product.html">Green corner</a></h2>
-                                <sub>$ 1499,-</sub>
-                                <sup>$ 1099,-</sup>
+                                <h2 class="title h4"><a href="product.html">'.$product['name'].'</a></h2>
+                                <sub>'.$product['price'].'</sub>
+                                <sup>'.$sales_price .'</sup>
                                 <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                             </div>
                         </div>
                     </article>
-                </div>
+                </div>';
 
+
+                    }
+} ?>
                 <!-- === product-item === -->
 
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-2.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Laura</a></h2>
-                                <sub>$ 3999,-</sub>
-                                <sup>$ 3499,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <span class="label label-warning">New</span>
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-3.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Nude</a></h2>
-                                <sup>$ 2999,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-4.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Aurora</a></h2>
-                                <sup>$ 299,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite added">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <span class="label label-info">-50%</span>
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-5.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Dining set</a></h2>
-                                <sub>$ 1999,-</sub>
-                                <sup>$ 1499,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-6.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Seat chair</a></h2>
-                                <sup>$ 896,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
 
             </div> <!--/row-->
             <!-- === button more === -->
@@ -412,9 +271,9 @@
             <header>
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8 text-center">
-                        <h2 class="title">Popular products</h2>
+                        <h2 class="title">Yangi mahsulotlar</h2>
                         <div class="text">
-                            <p>Check out our latest collections</p>
+                            <p>Yangi qo'shilgan tovarlar</p>
                         </div>
                     </div>
                 </div>
@@ -424,15 +283,21 @@
 
                 <!-- === product-item === -->
 
-                <div class="col-md-4 col-xs-6">
+
+                <?php $products = (new \yii\db\Query())->from('product')->all(); ?>
+                <?php                foreach ($products as $product) {
+                    if ($product['status'] == 3){
+                        //                        <!--cart item-->
+                        $sales_price =strval( $product['price']*($product['sales_procent']/100));
+                        echo '<div class="col-md-4 col-xs-6">
 
                     <article>
                         <div class="info">
                                 <span class="add-favorite added">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                                    <a href="javascript:void(-1);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                 </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                           <span>
+                                    <a href="#'.$product['id'].'" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                 </span>
                         </div>
                         <div class="btn btn-add">
@@ -441,172 +306,25 @@
                         <div class="figure-grid">
                             <div class="image">
                                 <a href="#productid1" class="mfp-open">
-                                    <img src="<?=$url?>assets/images/product-1.png" alt="" width="360" />
+                                    <img src="'.$url.'assets/images/product-1.png" alt="" width="360" />
                                 </a>
                             </div>
                             <div class="text">
-                                <h2 class="title h4"><a href="product.html">Green corner</a></h2>
-                                <sub>$ 1499,-</sub>
-                                <sup>$ 1099,-</sup>
+                                <h2 class="title h4"><a href="product.html">'.$product['name'].'</a></h2>
+                                <sub>'.$product['price'].'</sub>
+                                <sup>'.$sales_price .'</sup>
                                 <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                             </div>
                         </div>
                     </article>
-                </div>
+                </div>';
 
+
+                    }
+                } ?>
                 <!-- === product-item === -->
 
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-2.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Laura</a></h2>
-                                <sub>$ 3999,-</sub>
-                                <sup>$ 3499,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <span class="label label-warning">New</span>
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-3.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Nude</a></h2>
-                                <sup>$ 2999,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-4.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Aurora</a></h2>
-                                <sup>$ 299,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite added">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <span class="label label-info">-50%</span>
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-5.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Dining set</a></h2>
-                                <sub>$ 1999,-</sub>
-                                <sup>$ 1499,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-6.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Seat chair</a></h2>
-                                <sup>$ 896,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
 
             </div> <!--/row-->
             <!-- === button more === -->
@@ -719,9 +437,9 @@
             <header>
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8 text-center">
-                        <h2 class="title">Popular products</h2>
+                        <h2 class="title">Chegirmadagi mahsulotlar</h2>
                         <div class="text">
-                            <p>Check out our latest collections</p>
+                            <p>Chegirma e'lon qilingan tovarlar</p>
                         </div>
                     </div>
                 </div>
@@ -731,15 +449,21 @@
 
                 <!-- === product-item === -->
 
-                <div class="col-md-4 col-xs-6">
+
+                <?php $products = (new \yii\db\Query())->from('product')->all(); ?>
+                <?php                foreach ($products as $product) {
+                    if ($product['status'] == 4){
+                        //                        <!--cart item-->
+                        $sales_price =strval( $product['price']*($product['sales_procent']/100));
+                        echo '<div class="col-md-4 col-xs-6">
 
                     <article>
                         <div class="info">
                                 <span class="add-favorite added">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                                    <a href="javascript:void(-1);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                 </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                           <span>
+                                    <a href="#'.$product['id'].'" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                 </span>
                         </div>
                         <div class="btn btn-add">
@@ -748,172 +472,25 @@
                         <div class="figure-grid">
                             <div class="image">
                                 <a href="#productid1" class="mfp-open">
-                                    <img src="<?=$url?>assets/images/product-1.png" alt="" width="360" />
+                                    <img src="'.$url.'assets/images/product-1.png" alt="" width="360" />
                                 </a>
                             </div>
                             <div class="text">
-                                <h2 class="title h4"><a href="product.html">Green corner</a></h2>
-                                <sub>$ 1499,-</sub>
-                                <sup>$ 1099,-</sup>
+                                <h2 class="title h4"><a href="product.html">'.$product['name'].'</a></h2>
+                                <sub>'.$product['price'].'</sub>
+                                <sup>'.$sales_price .'</sup>
                                 <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                             </div>
                         </div>
                     </article>
-                </div>
+                </div>';
 
+
+                    }
+                } ?>
                 <!-- === product-item === -->
 
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-2.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Laura</a></h2>
-                                <sub>$ 3999,-</sub>
-                                <sup>$ 3499,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <span class="label label-warning">New</span>
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-3.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Nude</a></h2>
-                                <sup>$ 2999,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-4.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Aurora</a></h2>
-                                <sup>$ 299,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite added">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <span class="label label-info">-50%</span>
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-5.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Dining set</a></h2>
-                                <sub>$ 1999,-</sub>
-                                <sup>$ 1499,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- === product-item === -->
-
-                <div class="col-md-4 col-xs-6">
-                    <article>
-                        <div class="info">
-                                <span class="add-favorite">
-                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                </span>
-                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                                </span>
-                        </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
-                        <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1" class="mfp-open">
-                                    <img src="<?= $url?>assets/images/product-6.png" alt="" width="360" />
-                                </a>
-                            </div>
-                            <div class="text">
-                                <h2 class="title h4"><a href="product.html">Seat chair</a></h2>
-                                <sup>$ 896,-</sup>
-                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
 
             </div> <!--/row-->
             <!-- === button more === -->
@@ -924,7 +501,7 @@
 
             <!-- ========================  Product info popup - quick view ======================== -->
 
-            <div class="popup-main mfp-hide" id="productid1">
+            <div class="popup-main mfp-hide" id="<?php $product['id']; ?>">
 
                 <!-- === product popup === -->
 

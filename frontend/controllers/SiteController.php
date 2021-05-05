@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\Category;
+use common\models\Product;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -76,8 +77,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $categories = $this->findCategories();
-        return $this->render('index', ['categories' => $categories]);
+//        $categories = $this->findCategories();
+        $products = new Product();
+        return $this->render('index', [ 'products' => $products]);
     }
     public function actionCategory()
     {
