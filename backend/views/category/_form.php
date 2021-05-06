@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
             "nightstand" => "Tumba",
             "office" => "Office mebel",
             "retro" => "Retro",
-            "sho-cabinet" => "Poyafzal Jovoni",
+            "shoe-cabinet" => "Poyafzal Jovoni",
             "sofa" => "Divan",
             "table" => "Kichik tol",
             "wardrobe" => "Gardirob",

@@ -305,7 +305,7 @@
                         </div>
                         <div class="figure-grid">
                             <div class="image">
-                                <a href="#productid1" class="mfp-open">
+                                <a href="/product/view?id='.$product['id'].'" class="mfp-open">
                                     <img src="'.$url.'assets/images/product-1.png" alt="" width="360" />
                                 </a>
                             </div>

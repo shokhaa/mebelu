@@ -1,5 +1,5 @@
 <!-- ========================  Main header ======================== -->
-<?= $url = Yii::$app->homeUrl.'mebelu/template/';?>
+<?php $url = Yii::$app->homeUrl.'mebelu/template/';?>
 <section class="main-header" style="background-image:url(<?= $url?>assets/images/gallery-2.jpg)">
     <header class="hidden">
         <div class="container">
@@ -16,7 +16,7 @@
         <header>
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 text-center">
-                    <h2 class="title">Product categories</h2>
+                    <h2 class="title"><?php $category ?></h2>
                     <div class="text">
                         <p>Select category</p>
                     </div>

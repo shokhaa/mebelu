@@ -43,4 +43,11 @@ class CategoryProduct extends \yii\db\ActiveRecord
             'product_id' => Yii::t('app', 'Product ID'),
         ];
     }
+
+    public function getCategories(){
+        return $this->hasMany(Category::className(), ['category_id' => 'id']);
+    }
+    public function getProducts(){
+        return $this->hasMany(Product::className(), ['product_id' => 'id']);
+    }
 }

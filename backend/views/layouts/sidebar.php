@@ -24,6 +24,8 @@
                     ],
                     ['label' => 'Product', 'icon' => 'fas fa-couch', 'url' => ['/product']],
                     ['label' => 'Product Image', 'icon' => 'fas fa-images', 'url' => ['/product-image']],
+                    ['label' => 'Category Product', 'icon' => 'fas fa-images', 'url' => ['/category-product']],
+
 
                 ],
             ]);

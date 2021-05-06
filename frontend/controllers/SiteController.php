@@ -83,7 +83,8 @@ class SiteController extends Controller
     }
     public function actionCategory()
     {
-        return $this->render('category');
+        $category = new Category();
+        return $this->render('category', ['category' => $category]);
     }
     protected function findCategories(){
         if ($categories = Category::find() !== null){

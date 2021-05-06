@@ -129,7 +129,7 @@ AppAsset::register($this);
                                                 foreach ($categories as $category){
 
                                                     echo '    <div class="col-sm-3 col-xs-6">
-        <a href="category/' . $category['id']. '">
+        <a href="/category/view?id=' . $category['id']. '">
     <figure><i class="f-icon f-icon-' . $category['category_icon'] . '"></i>
     <figcaption>' . $category['name'] .'
     </figcaption></figure></a></div>';
@@ -225,7 +225,7 @@ echo '<div class="row">
                                     <a href="product.html"><img src="'.$url. 'assets/images/product-1.png" alt="" /></a>
                                 </div>
                                 <div class="title">
-                                    <div><a href="product.html">'.$product['name'].'</a></div>
+                                    <div><a href="/product/view?id='.$product['id'].'">'.$product['name'].'</a></div>
                                     <small>Green corner</small>
                                 </div>
                                 <div class="quantity">
@@ -330,7 +330,8 @@ echo '<div class="row">
                 </div>
                 <div class="col-sm-4 text-center">
                     <a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
-                    <div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
+                    <div class="call-us h4"><span class="icon icon-phone-handset"></span> <a href="tel:+998977454255">+998977454255</a></div>
+
                 </div>
             </div>
         </div>
@@ -339,35 +340,38 @@ echo '<div class="row">
         <div class="footer-links">
             <div class="row">
                 <div class="col-sm-4 col-md-2">
-                    <h5>Browse by</h5>
+                    <h5>Orqali ko'rish</h5>
                     <ul>
-                        <li><a href="#">Brand</a></li>
-                        <li><a href="#">Product</a></li>
-                        <li><a href="#">Category</a></li>
+<!--                        <li><a href="">Brand</a></li>-->
+                        <li><a href="">Mahsulotlar</a></li>
+                        <li><a href="">Kategoriyalar</a></li>
                     </ul>
                 </div>
+
                 <div class="col-sm-4 col-md-2">
-                    <h5>Recources</h5>
+                    <h5>Bizning kompaniya</h5>
                     <ul>
-                        <li><a href="#">Design</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Sales</a></li>
+                        <li><a href="/site/about">Biz haqimizda</a></li>
+                        <li><a href="/site/news">Yangiliklar</a></li>
+                        <li><a href="/site/contacts">Kontaktlarimiz</a></li>
                     </ul>
                 </div>
+
                 <div class="col-sm-4 col-md-2">
-                    <h5>Our company</h5>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
+                    <!--                    <h5>Recources</h5>-->
+                    <!--                    <ul>-->
+                    <!--                        <li><a href="#">Design</a></li>-->
+                    <!--                        <li><a href="#">Projects</a></li>-->
+                    <!--                        <li><a href="#">Sales</a></li>-->
+                    <!--                    </ul>-->
                 </div>
+
                 <div class="col-sm-12 col-md-6">
-                    <h5>Sign up for our newsletter</h5>
-                    <p><i>Add your email address to sign up for our monthly emails and to receive promotional offers.</i></p>
+                    <h5>Yangiliklardan xabardor bo'ling</h5>
+                    <p><i>Bizning yangliklardan doimiy xabardor bo'lish uchun emailingizni kiriting</i></p>
                     <div class="form-group form-newsletter">
-                        <input class="form-control" type="text" name="email" value="" placeholder="Email address" />
-                        <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
+                        <input class="form-control" type="email" name="email" value="" placeholder="Email adresingiz" />
+                        <input type="submit" class="btn btn-clean btn-sm" value="Obuna bo'lish" />
                     </div>
                 </div>
             </div>
@@ -378,7 +382,6 @@ echo '<div class="row">
         <div class="footer-social">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
                 </div>
                 <div class="col-sm-6 links">
                     <ul>
