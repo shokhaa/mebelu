@@ -16,7 +16,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'sales_procent')->textInput() ?>
+    <?= ($model->status == 4)?$form->field($model, 'sales_procent')->textInput(['min'=>0,'max' => 100]):false
+     ?>
 
     <?= $form->field($model, 'status')->dropDownList(
         [

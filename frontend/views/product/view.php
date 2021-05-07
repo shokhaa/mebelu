@@ -39,7 +39,7 @@
 
                             <!-- === product-title === -->
 
-                            <h1 class="title" data-title="Sofa">Laura <small>La Linea de Lucco</small></h1>
+                            <h1 class="title" data-title="Sofa"><?= $model->name ?> <small>La Linea de Lucco</small></h1>
 
                             <div class="clearfix">
 
@@ -48,7 +48,7 @@
                                 <div class="price">
                                         <span class="h3">
                                             $ 1999,00
-                                            <small>$ 2999,00</small>
+                                            <small><?= $model->price ?></small>
                                         </span>
                                 </div>
                                 <hr />
@@ -137,16 +137,13 @@
 
                     <div class="col-md-8 col-sm-12 product-flex-gallery">
 
-
-
-
                         <!-- === product gallery === -->
 
                         <div class="owl-product-gallery open-popup-gallery">
-                            <a href="assets/images/product-1.png"><img src="assets/images/product-1.png" alt="" height="500" /></a>
-                            <a href="assets/images/product-2.png"><img src="assets/images/product-2.png" alt="" height="500" /></a>
-                            <a href="assets/images/product-3.png"><img src="assets/images/product-3.png" alt="" height="500" /></a>
-                            <a href="assets/images/product-4.png"><img src="assets/images/product-4.png" alt="" height="500" /></a>
+                            <a href="<?= $url ?>assets/images/product-1.png"><img src="<?= $url ?>assets/images/product-1.png" alt="" height="500" /></a>
+                            <a href="<?= $url ?>assets/images/product-2.png"><img src="<?= $url ?>assets/images/product-2.png" alt="" height="500" /></a>
+                            <a href="<?= $url ?>assets/images/product-3.png"><img src="<?= $url ?>assets/images/product-3.png" alt="" height="500" /></a>
+                            <a href="<?= $url ?>assets/images/product-4.png"><img src="<?= $url ?>assets/images/product-4.png" alt="" height="500" /></a>
                         </div>
                     </div>
 
@@ -168,7 +165,7 @@
             <!-- === popup-title === -->
 
             <div class="popup-title">
-                <div class="h1 title">Laura <small>product category</small></div>
+                <div class="h1 title"><?= $model->name ?> <small>product category</small></div>
             </div>
 
             <!-- === product gallery === -->

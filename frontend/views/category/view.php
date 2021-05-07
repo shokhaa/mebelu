@@ -48,7 +48,7 @@ $this->title = $model->name;
                                     <a href="javascript:void(-1);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                 </span>
                            <span>
-                                    <a href="#'.$product['id'].'" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                 </span>
                         </div>
                         <div class="btn btn-add">
@@ -56,7 +56,7 @@ $this->title = $model->name;
                         </div>
                         <div class="figure-grid">
                             <div class="image">
-                                <a href="/product/view?id='.$product['id'].'" class="mfp-open">
+                                <a href="#productid1"  class="mfp-open">
                                     <img src="'.$url.'assets/images/product-1.png" alt="" width="360" />
                                 </a>
                             </div>
@@ -68,7 +68,50 @@ $this->title = $model->name;
                             </div>
                         </div>
                     </article>
-                </div>';
+                </div>
+                <div class="popup-main mfp-hide" id="productid1">
+
+                <!-- === product popup === -->
+
+                <div class="product">
+
+                    <!-- === popup-title === -->
+
+                    <div class="popup-title">
+                        <div class="h1 title">'.$product['name'].'<small>product category</small></div>
+                    </div>
+
+                    <!-- === product gallery === -->
+
+                    <div class="owl-product-gallery">
+                        <img src="'.$url.'assets/images/product-1.png" alt="" width="640" />
+                        <img src="'.$url.'assets/images/product-2.png" alt="" width="640" />
+                        <img src="'.$url.'assets/images/product-3.png" alt="" width="640" />
+                        <img src="'.$url.'assets/images/product-4.png" alt="" width="640" />
+                    </div>
+
+                    <!-- === product-popup-info === -->
+
+                    
+                    <!-- === product-popup-footer === -->
+
+                    <div class="popup-table">
+                        <div class="popup-cell">
+                            <div class="price">
+                                <span class="h3">'.$sales_price .' <small>'.$product['price'].'</small></span>
+                            </div>
+                        </div>
+                        <div class="popup-cell">
+                            <div class="popup-buttons">
+                                <a href="/product/view?id='.$product['id'].'"><span class="icon icon-eye"></span> <span class="hidden-xs">Ko\'proq ma\'lumot</span></a>
+                              
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!--/product-->
+            </div> <!--popup-main-->
+                ';
                 }
                 else echo "hech nima topilmadi";
 
