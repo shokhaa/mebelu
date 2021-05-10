@@ -1,24 +1,18 @@
-<?php $url = Yii::$app->homeUrl.'mebelu/template/'; ?>
+<?php $url = Yii::$app->homeUrl.'mebelu/template/assets/images/'; ?>
 
 <div class="page-loader"></div>
 
 <div class="wrapper">
 
-    <!--Use class "navbar-fixed" or "navbar-default" -->
-    <!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
-
-
     <!-- ========================  Main header ======================== -->
 
-    <section class="main-header" style="background-image:url(<?= $url ?>assets/images/gallery-2.jpg)">
+    <section class="main-header" style="background-image:url(<?= $url ?>gallery-2.jpg)">
         <header>
             <div class="container">
-                <h1 class="h2 title">Sofa Laura</h1>
+                <h1 class="h2 title"><?= $model->name ?></h1>
                 <ol class="breadcrumb breadcrumb-inverted">
-                    <li><a href="index.html"><span class="icon icon-home"></span></a></li>
-                    <li><a href="category.html">Product Category</a></li>
-                    <li><a href="products-grid.html">Product Sub-category</a></li>
-                    <li><a class="active" href="product.html">Product overview</a></li>
+                    <li><a href="/site/index"><span class="icon icon-home"></span></a></li>
+                    <li><a class="active" href="/product/view?id=<?= $model->id ?>">Mahsulot</a></li>
                 </ol>
             </div>
         </header>
@@ -31,15 +25,12 @@
             <div class="container">
                 <div class="row product-flex">
 
-                    <!-- product flex is used only for mobile order -->
-                    <!-- on mobile 'product-flex-info' goes bellow gallery 'product-flex-gallery' -->
-
                     <div class="col-md-4 col-sm-12 product-flex-info">
                         <div class="clearfix">
 
                             <!-- === product-title === -->
 
-                            <h1 class="title" data-title="Sofa"><?= $model->name ?> <small>La Linea de Lucco</small></h1>
+                            <h1 class="title" data-title="mebele"> <?= $model->name ?></h1>
 
                             <div class="clearfix">
 
@@ -47,8 +38,12 @@
 
                                 <div class="price">
                                         <span class="h3">
-                                            $ 1999,00
-                                            <small><?= $model->price ?></small>
+                                            <?php
+                                            if ($model->status == 4 ){
+                                                $price =strval( $model->price - $model->price*($model->sales_procent/100));
+                                                echo $price.'<small>'. $model->price .'</small>';
+                                            }
+                                            ?>
                                         </span>
                                 </div>
                                 <hr />
@@ -140,10 +135,10 @@
                         <!-- === product gallery === -->
 
                         <div class="owl-product-gallery open-popup-gallery">
-                            <a href="<?= $url ?>assets/images/product-1.png"><img src="<?= $url ?>assets/images/product-1.png" alt="" height="500" /></a>
-                            <a href="<?= $url ?>assets/images/product-2.png"><img src="<?= $url ?>assets/images/product-2.png" alt="" height="500" /></a>
-                            <a href="<?= $url ?>assets/images/product-3.png"><img src="<?= $url ?>assets/images/product-3.png" alt="" height="500" /></a>
-                            <a href="<?= $url ?>assets/images/product-4.png"><img src="<?= $url ?>assets/images/product-4.png" alt="" height="500" /></a>
+                            <a href="<?= $url ?>product-1.png"><img src="<?= $url ?>product-1.png" alt="product image" height="500" /></a>
+                            <a href="<?= $url ?>product-2.png"><img src="<?= $url ?>product-2.png" alt="product image" height="500" /></a>
+                            <a href="<?= $url ?>product-3.png"><img src="<?= $url ?>product-3.png" alt="product image" height="500" /></a>
+                            <a href="<?= $url ?>product-4.png"><img src="<?= $url ?>product-4.png" alt="product image" height="500" /></a>
                         </div>
                     </div>
 
@@ -171,10 +166,10 @@
             <!-- === product gallery === -->
 
             <div class="owl-product-gallery">
-                <img src="assets/images/product-1.png" alt="" width="640" />
-                <img src="assets/images/product-2.png" alt="" width="640" />
-                <img src="assets/images/product-3.png" alt="" width="640" />
-                <img src="assets/images/product-4.png" alt="" width="640" />
+                <img src="<?= $url ?>product-1.png" alt="" width="640" />
+                <img src="<?= $url ?>product-2.png" alt="" width="640" />
+                <img src="<?= $url ?>product-3.png" alt="" width="640" />
+                <img src="<?= $url ?>product-4.png" alt="" width="640" />
             </div>
 
             <!-- === product-popup-info === -->
@@ -237,7 +232,7 @@
                 </div>
                 <div class="popup-cell">
                     <div class="popup-buttons">
-                        <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
+                        <a href="/product/view?id=<?= $model->id?>"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
                         <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
                     </div>
                 </div>

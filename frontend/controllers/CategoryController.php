@@ -2,6 +2,8 @@
 
 namespace frontend\controllers;
 
+use common\models\CategoryProduct;
+use common\models\Product;
 use Yii;
 use common\models\Category;
 use common\models\CategorySearch;
@@ -66,8 +68,14 @@ class CategoryController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+
+        $category = CategoryProduct::find()->where(['category_id' => $model->id])->all();
+
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'category' => $category
         ]);
     }
 

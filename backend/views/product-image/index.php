@@ -25,7 +25,6 @@ $this->title = Yii::t('app', 'Product Images');
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'image_url',
             'product_id',
 

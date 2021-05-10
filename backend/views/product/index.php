@@ -23,12 +23,12 @@ $this->title = Yii::t('app', 'Products');
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+
             'name',
             'price',
             'sales_procent',
             'status',
-            //'description:ntext',
+            'description:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

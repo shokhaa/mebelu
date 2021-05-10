@@ -23,7 +23,7 @@ $this->title = Yii::t('app', 'Categories');
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+
             'name',
             'category_icon',
 

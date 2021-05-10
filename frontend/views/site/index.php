@@ -1,4 +1,4 @@
-<?php $url = Yii::$app->homeUrl."mebelu/template/"; ?>
+<?php $url = Yii::$app->homeUrl."mebelu/template/assets/images/"; ?>
 <body>
 
     <!-- ========================  Header content ======================== -->
@@ -9,7 +9,7 @@
 
             <!-- === slide item === -->
 
-            <div class="item" style="background-image:url(<?= $url?>assets/images/gallery-1.jpg)">
+            <div class="item" style="background-image:url(<?= $url?>gallery-1.jpg)">
                 <div class="box">
                     <div class="container">
                         <h2 class="title animated h1" data-animation="fadeInDown">Modern furniture theme</h2>
@@ -26,7 +26,7 @@
 
             <!-- === slide item === -->
 
-            <div class="item" style="background-image:url(<?= $url?>assets/images/gallery-2.jpg)">
+            <div class="item" style="background-image:url(<?= $url?>/gallery-2.jpg)">
                 <div class="box">
                     <div class="container">
                         <h2 class="title animated h1" data-animation="fadeInDown">Mobile ready!</h2>
@@ -41,7 +41,7 @@
 
             <!-- === slide item === -->
 
-            <div class="item" style="background-image:url(<?= $url?>assets/images/gallery-3.jpg)">
+            <div class="item" style="background-image:url(<?= $url?>gallery-3.jpg)">
                 <div class="box">
                     <div class="container">
                         <h2 class="title animated h1" data-animation="fadeInDown">
@@ -78,10 +78,10 @@
             <div class="owl-icons">
 
                 <!-- === icon item === -->
-                <?php $categories = (new \yii\db\Query())->from('category')->all();
+                <?php
                 foreach ($categories as $category) {
 
-                    echo                              '<a href=href="category/' . $category['name']. '">
+                    echo                              '<a href="/category/view?id=' . $category['id']. '">
                     <figure>
                         <i class= "f-icon f-icon-' . $category['category_icon'] . '"></i>
                         <figcaption>' . $category['name'] .'</figcaption>
@@ -118,43 +118,47 @@
                 <!-- === product-item === -->
 
 
-                <?php $products = (new \yii\db\Query())->from('product')->all(); ?>
-<?php                foreach ($products as $product) {
-                    if ($product['status'] == 2){
-                        //                        <!--cart item-->
-                        if ($product['sales_procent']){
-                            $sales_price =strval( $product['price']*($product['sales_procent']/100));
-                        }
-                        echo '<div class="col-md-4 col-xs-6">
+                <?php
+                ?>
+<?php
+    $count = 0;
+    foreach ($products as $product) {
+
+
+        if ($product['status'] == 2){
+            $image = \common\models\ProductImage::find()->where(['product_id' => $product['id']])->asArray()->one();
+
+            $count++;
+
+            echo '<div class="col-md-4 col-xs-6">
 
                     <article>
                         <div class="info">
-                                <span class="add-favorite added">
+                                <span class="add-favorite">
                                     <a href="javascript:void(-1);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                 </span>
                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                                    <a href="'.$product['id'].'" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                 </span>
                         </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
+
                         <div class="figure-grid">
-                            <div class="image">
-                                <a href="#productid1"  class="mfp-open">
-                                    <img src="'.$url.'assets/images/product-1.png" alt="" width="360" />
+                            <div class="image ">
+                                <a href="#'.$product['id'].'" style=" display ; width: 480px!important; height: 640px !important;"  class="mfp-open">
+                                    <img src="'.$url.$image['image_url'].'" alt="product image"
+                                     style="width: 480px!important; height: 640px !important;" width="360" />
                                 </a>
                             </div>
                             <div class="text">
                                 <h2 class="title h4"><a href="product.html">'.$product['name'].'</a></h2>
-                                <sub>'.$product['price'].'</sub>
-                                <sup>'.$sales_price .'</sup>
+                                
+                                <sup>'.$product['price'] .'</sup>
                                 <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                             </div>
                         </div>
                     </article>
                 </div>
-                <div class="popup-main mfp-hide" id="productid1">
+                <div class="popup-main mfp-hide" id="'.$product['id'].'">
 
                 <!-- === product popup === -->
 
@@ -169,10 +173,10 @@
                     <!-- === product gallery === -->
 
                     <div class="owl-product-gallery">
-                        <img src="'.$url.'assets/images/product-1.png" alt="" width="640" />
-                        <img src="'.$url.'assets/images/product-2.png" alt="" width="640" />
-                        <img src="'.$url.'assets/images/product-3.png" alt="" width="640" />
-                        <img src="'.$url.'assets/images/product-4.png" alt="" width="640" />
+                        <img src="'.$url.'product-1.png" alt="product image" width="640" />
+                        <img src="'.$url.'product-2.png" alt="product image" width="640" />
+                        <img src="'.$url.'product-3.png" alt="product image" width="640" />
+                        <img src="'.$url.'product-4.png" alt="product image" width="640" />
                     </div>
 
                     <!-- === product-popup-info === -->
@@ -183,7 +187,7 @@
                     <div class="popup-table">
                         <div class="popup-cell">
                             <div class="price">
-                                <span class="h3">'.$sales_price .' <small>'.$product['price'].'</small></span>
+                                <span class="h3">'.$product['price'].'</span>
                             </div>
                         </div>
                         <div class="popup-cell">
@@ -198,19 +202,22 @@
             </div> <!--popup-main-->
                 ';
 
+            if ($count>5){
+                echo '                <div class="wrapper-more">
+                    <a href="products-grid.html" class="btn btn-main">Ko\'proq ko\'rish</a>
+                </div>';
+            }
 
-                    }
+        }
 } ?>
                 <!-- === product-item === -->
+
 
 
 
             </div> <!--/row-->
             <!-- === button more === -->
 
-            <div class="wrapper-more">
-                <a href="products-grid.html" class="btn btn-main">View store</a>
-            </div>
 
         </div> <!--/container-->
     </section>
@@ -238,41 +245,43 @@
                 <!-- === product-item === -->
 
 
-                <?php $products = (new \yii\db\Query())->from('product')->all(); ?>
-                <?php                foreach ($products as $product) {
+
+                <?php
+                $count = 0;
+                foreach ($products as $product) {
+
                     if ($product['status'] == 3){
+                        $count++;
                         //                        <!--cart item-->
-                        $sales_price =strval( $product['price']*($product['sales_procent']/100));
+
                         echo '<div class="col-md-4 col-xs-6">
 
                     <article>
                         <div class="info">
-                                <span class="add-favorite added">
+                                <span class="add-favorite">
                                     <a href="javascript:void(-1);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                 </span>
                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                                    <a href="'.$product['id'].'" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                 </span>
                         </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
+
                         <div class="figure-grid">
                             <div class="image">
-                                <a href="#productid1"  class="mfp-open">
-                                    <img src="'.$url.'assets/images/product-1.png" alt="" width="360" />
+                                <a href="#'.$product['id'].'"  class="mfp-open">
+                                    <img src="'.$url.'product-1.png" alt="product image" width="360" />
                                 </a>
                             </div>
                             <div class="text">
                                 <h2 class="title h4"><a href="product.html">'.$product['name'].'</a></h2>
-                                <sub>'.$product['price'].'</sub>
-                                <sup>'.$sales_price .'</sup>
+                                
+                                <sup>'.$product['price'] .'</sup>
                                 <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                             </div>
                         </div>
                     </article>
                 </div>
-                <div class="popup-main mfp-hide" id="productid1">
+                <div class="popup-main mfp-hide" id="'.$product['id'].'">
 
                 <!-- === product popup === -->
 
@@ -287,10 +296,10 @@
                     <!-- === product gallery === -->
 
                     <div class="owl-product-gallery">
-                        <img src="'.$url.'assets/images/product-1.png" alt="" width="640" />
-                        <img src="'.$url.'assets/images/product-2.png" alt="" width="640" />
-                        <img src="'.$url.'assets/images/product-3.png" alt="" width="640" />
-                        <img src="'.$url.'assets/images/product-4.png" alt="" width="640" />
+                        <img src="'.$url.'product-1.png" alt="product image" width="640" />
+                        <img src="'.$url.'product-2.png" alt="product image" width="640" />
+                        <img src="'.$url.'product-3.png" alt="product image" width="640" />
+                        <img src="'.$url.'product-4.png" alt="product image" width="640" />
                     </div>
 
                     <!-- === product-popup-info === -->
@@ -301,7 +310,7 @@
                     <div class="popup-table">
                         <div class="popup-cell">
                             <div class="price">
-                                <span class="h3">'.$sales_price .' <small>'.$product['price'].'</small></span>
+                                <span class="h3">'.$product['id'] .'</span>
                             </div>
                         </div>
                         <div class="popup-cell">
@@ -316,6 +325,11 @@
             </div> <!--popup-main-->
                 ';
 
+                        if ($count>5){
+                            echo '                <div class="wrapper-more">
+                    <a href="products-grid.html" class="btn btn-main">Ko\'proq ko\'rish</a>
+                </div>';
+                        }
 
                     }
                 } ?>
@@ -324,13 +338,6 @@
 
 
             </div> <!--/row-->
-            <!-- === button more === -->
-
-            <div class="wrapper-more">
-                <a href="products-grid.html" class="btn btn-main">View store</a>
-            </div>
-
-            <!-- ========================  Product info popup - quick view ======================== -->
 
         </div> <!--/container-->
     </section>
@@ -358,41 +365,42 @@
                 <!-- === product-item === -->
 
 
-                <?php $products = (new \yii\db\Query())->from('product')->all(); ?>
-                <?php                foreach ($products as $product) {
+                <?php
+                $count = 0;
+                foreach ($products as $product) {
+
                     if ($product['status'] == 4){
-                        //                        <!--cart item-->
-                        $sales_price =strval( $product['price']*($product['sales_procent']/100));
+                        $count++;
+                        $product['price'] =ceil($product['price'] - $product['price']*($product['sales_procent']/100));
+
                         echo '<div class="col-md-4 col-xs-6">
 
                     <article>
                         <div class="info">
-                                <span class="add-favorite added">
+                                <span class="add-favorite">
                                     <a href="javascript:void(-1);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
                                 </span>
                            <span>
-                                    <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                                    <a href="'.$product['id'].'" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                 </span>
                         </div>
-                        <div class="btn btn-add">
-                            <i class="icon icon-cart"></i>
-                        </div>
+
                         <div class="figure-grid">
                             <div class="image">
-                                <a href="#productid1"  class="mfp-open">
-                                    <img src="'.$url.'assets/images/product-1.png" alt="" width="360" />
+                                <a href="#'.$product['id'].'"  class="mfp-open">
+                                    <img src="'.$url.'product-1.png" alt="product image" width="360" />
                                 </a>
                             </div>
                             <div class="text">
                                 <h2 class="title h4"><a href="product.html">'.$product['name'].'</a></h2>
-                                <sub>'.$product['price'].'</sub>
-                                <sup>'.$sales_price .'</sup>
+                                
+                                <sup>'.$product['price'] .'</sup>
                                 <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                             </div>
                         </div>
                     </article>
                 </div>
-                <div class="popup-main mfp-hide" id="productid1">
+                <div class="popup-main mfp-hide" id="'.$product['id'].'">
 
                 <!-- === product popup === -->
 
@@ -407,10 +415,10 @@
                     <!-- === product gallery === -->
 
                     <div class="owl-product-gallery">
-                        <img src="'.$url.'assets/images/product-1.png" alt="" width="640" />
-                        <img src="'.$url.'assets/images/product-2.png" alt="" width="640" />
-                        <img src="'.$url.'assets/images/product-3.png" alt="" width="640" />
-                        <img src="'.$url.'assets/images/product-4.png" alt="" width="640" />
+                        <img src="'.$url.'product-1.png" alt="product image" width="640" />
+                        <img src="'.$url.'product-2.png" alt="product image" width="640" />
+                        <img src="'.$url.'product-3.png" alt="product image" width="640" />
+                        <img src="'.$url.'product-4.png" alt="product image" width="640" />
                     </div>
 
                     <!-- === product-popup-info === -->
@@ -421,7 +429,7 @@
                     <div class="popup-table">
                         <div class="popup-cell">
                             <div class="price">
-                                <span class="h3">'.$sales_price .' <small>'.$product['price'].'</small></span>
+                                <span class="h3">'.$product['id'] .'</span>
                             </div>
                         </div>
                         <div class="popup-cell">
@@ -436,6 +444,13 @@
             </div> <!--popup-main-->
                 ';
 
+                        if ($count>5)
+                        {
+                            echo '
+                                    <div class="wrapper-more">
+                                        <a href="products-grid.html" class="btn btn-main">Ko\'proq ko\'rish</a>
+                                    </div>';
+                        }
 
                     }
                 } ?>
@@ -444,13 +459,7 @@
 
 
             </div> <!--/row-->
-            <!-- === button more === -->
 
-            <div class="wrapper-more">
-                <a href="products-grid.html" class="btn btn-main">View store</a>
-            </div>
-
-            <!-- ========================  Product info popup - quick view ======================== -->
 
         </div> <!--/container-->
     </section>
@@ -483,22 +492,22 @@
 
         <div class="gallery clearfix">
             <a class="item" href="#">
-                <img src="<?= $url?>assets/images/square-1.jpg" alt="Alternate Text" />
+                <img src="<?= $url?>square-1.jpg" alt="Alternate Text" />
             </a>
             <a class="item" href="#">
-                <img src="<?= $url?>assets/images/square-2.jpg" alt="Alternate Text" />
+                <img src="<?= $url?>square-2.jpg" alt="Alternate Text" />
             </a>
             <a class="item" href="#">
-                <img src="<?= $url?>assets/images/square-3.jpg" alt="Alternate Text" />
+                <img src="<?= $url?>square-3.jpg" alt="Alternate Text" />
             </a>
             <a class="item" href="#">
-                <img src="<?= $url?>assets/images/square-4.jpg" alt="Alternate Text" />
+                <img src="<?= $url?>square-4.jpg" alt="Alternate Text" />
             </a>
             <a class="item" href="#">
-                <img src="<?= $url?>assets/images/square-5.jpg" alt="Alternate Text" />
+                <img src="<?= $url?>square-5.jpg" alt="Alternate Text" />
             </a>
             <a class="item" href="#">
-                <img src="<?= $url?>assets/images/square-6.jpg" alt="Alternate Text" />
+                <img src="<?= $url?>square-6.jpg" alt="Alternate Text" />
             </a>
 
         </div> <!--/gallery-->

@@ -98,7 +98,7 @@ class ProductImageController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $imageFile = UploadedFile::getInstance($model, 'image_url');
             if (isset($imageFile->size)){
-                $imageFile->saveAs('uploads/'.$model->product->name.'.'.$imageFile->extension);
+                $imageFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$model->product->name.'.'.$imageFile->extension);
             }
             $model->image_url = $model->product->name.'.'.$imageFile->extension;
             $model->save(false);

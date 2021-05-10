@@ -3,20 +3,9 @@ namespace frontend\controllers;
 
 use common\models\Category;
 use common\models\Product;
-use frontend\models\ResendVerificationEmailForm;
-use frontend\models\VerifyEmailForm;
-use Yii;
-use yii\base\InvalidArgumentException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
-use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
@@ -77,20 +66,17 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-//        $categories = $this->findCategories();
-        $products = new Product();
-        return $this->render('index', [ 'products' => $products]);
-    }
-    public function actionCategory()
-    {
-        $category = new Category();
-        return $this->render('category', ['category' => $category]);
-    }
-    protected function findCategories(){
-        if ($categories = Category::find() !== null){
-            return $categories;
-        }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-    }
+        $categories = Category::find()->asArray()->all();
 
+        $products = Product::find()->asArray()->all();
+
+        return $this->render('index',
+            [
+                'products' => $products,
+                'categories' => $categories
+            ]);
+    }
+    public function actionContacts(){
+        return $this->render('contact');
+    }
 }
