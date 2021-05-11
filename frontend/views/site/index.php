@@ -1,101 +1,93 @@
 <?php $url = Yii::$app->homeUrl."mebelu/template/assets/images/"; ?>
 <body>
 
-    <!-- ========================  Header content ======================== -->
+<section class="header-content">
 
-    <section class="header-content">
+    <div class="owl-slider">
 
-        <div class="owl-slider">
+        <!-- === slide item === -->
 
-            <!-- === slide item === -->
-
-            <div class="item" style="background-image:url(<?= $url?>gallery-1.jpg)">
-                <div class="box">
-                    <div class="container">
-                        <h2 class="title animated h1" data-animation="fadeInDown">Modern furniture theme</h2>
-                        <div class="animated" data-animation="fadeInUp">
-                            Modern & powerfull template. <br /> Clean design & reponsive
-                            layout. Google fonts integration
-                        </div>
-                        <div class="animated" data-animation="fadeInUp">
-                            <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-main" ><i class="icon icon-cart"></i> Buy this template</a>
-                        </div>
+        <div class="item" style="background-image:url(<?= $url?>gallery-1.jpg)">
+            <div class="box">
+                <div class="container">
+                    <h2 class="title animated h1" data-animation="fadeInDown">Modern furniture theme</h2>
+                    <div class="animated" data-animation="fadeInUp">
+                        Modern & powerfull template. <br /> Clean design & reponsive
+                        layout. Google fonts integration
+                    </div>
+                    <div class="animated" data-animation="fadeInUp">
+                        <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-main" ><i class="icon icon-cart"></i> Buy this template</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- === slide item === -->
+        <!-- === slide item === -->
 
-            <div class="item" style="background-image:url(<?= $url?>/gallery-2.jpg)">
-                <div class="box">
-                    <div class="container">
-                        <h2 class="title animated h1" data-animation="fadeInDown">Mobile ready!</h2>
-                        <div class="animated" data-animation="fadeInUp">Unlimited Choices. Unbeatable Prices. Free Shipping.</div>
-                        <div class="animated" data-animation="fadeInUp">Furniture category icon fonts!</div>
-                        <div class="animated" data-animation="fadeInUp">
-                            <a href="category.html" class="btn btn-clean">Get insipred</a>
-                        </div>
+        <div class="item" style="background-image:url(<?= $url?>/gallery-2.jpg)">
+            <div class="box">
+                <div class="container">
+                    <h2 class="title animated h1" data-animation="fadeInDown">Mobile ready!</h2>
+                    <div class="animated" data-animation="fadeInUp">Unlimited Choices. Unbeatable Prices. Free Shipping.</div>
+                    <div class="animated" data-animation="fadeInUp">Furniture category icon fonts!</div>
+                    <div class="animated" data-animation="fadeInUp">
+                        <a href="category.html" class="btn btn-clean">Get insipred</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- === slide item === -->
+        <!-- === slide item === -->
 
-            <div class="item" style="background-image:url(<?= $url?>gallery-3.jpg)">
-                <div class="box">
-                    <div class="container">
-                        <h2 class="title animated h1" data-animation="fadeInDown">
-                            Very Animate.css Friend.
-                        </h2>
-                        <div class="desc animated" data-animation="fadeInUp">
-                            Combine with animate.css. Or just use your own!.
-                        </div>
-                        <div class="desc animated" data-animation="fadeInUp">
-                            Bunch of typography effects.
-                        </div>
-                        <div class="animated" data-animation="fadeInUp">
-                            <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-clean">Buy this template</a>
-                        </div>
+        <div class="item" style="background-image:url(<?= $url?>gallery-3.jpg)">
+            <div class="box">
+                <div class="container">
+                    <h2 class="title animated h1" data-animation="fadeInDown">
+                        Very Animate.css Friend.
+                    </h2>
+                    <div class="desc animated" data-animation="fadeInUp">
+                        Combine with animate.css. Or just use your own!.
+                    </div>
+                    <div class="desc animated" data-animation="fadeInUp">
+                        Bunch of typography effects.
+                    </div>
+                    <div class="animated" data-animation="fadeInUp">
+                        <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-clean">Buy this template</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-        </div> <!--/owl-slider-->
-    </section>
+    </div> <!--/owl-slider-->
+</section>
+<section class="owl-icons-wrapper owl-icons-frontpage">
 
-    <!-- ========================  Icons slider ======================== -->
+    <!-- === header === -->
 
-    <section class="owl-icons-wrapper owl-icons-frontpage">
+    <header class="hidden">
+        <h2>Product categories</h2>
+    </header>
 
-        <!-- === header === -->
+    <div class="container">
 
-        <header class="hidden">
-            <h2>Product categories</h2>
-        </header>
+        <div class="owl-icons">
 
-        <div class="container">
+            <!-- === icon item === -->
+            <?php
+            foreach ($categories as $category) {
 
-            <div class="owl-icons">
-
-                <!-- === icon item === -->
-                <?php
-                foreach ($categories as $category) {
-
-                    echo                              '<a href="/category/view?id=' . $category['id']. '">
+                echo                              '<a href="/category/view?id=' . $category['id']. '">
                     <figure>
                         <i class= "f-icon f-icon-' . $category['category_icon'] . '"></i>
                         <figcaption>' . $category['name'] .'</figcaption>
                     </figure>
                 </a>';
-                }
-                ?>
+            }
+            ?>
 
-            </div> <!--/owl-icons-->
-        </div> <!--/container-->
-    </section>
-
-    <!-- ========================  Products widget ======================== -->
-
+        </div> <!--/owl-icons-->
+    </div> <!--/container-->
+</section>
     <section class="products">
 
         <div class="container">
@@ -144,9 +136,8 @@
 
                         <div class="figure-grid">
                             <div class="image ">
-                                <a href="#'.$product['id'].'" style=" display ; width: 480px!important; height: 640px !important;"  class="mfp-open">
-                                    <img src="'.$url.$image['image_url'].'" alt="product image"
-                                     style="width: 480px!important; height: 640px !important;" width="360" />
+                                <a href="#'.$product['id'].'" class="mfp-open">
+                                    <img src="'.$url.$image['image_url'].'" alt="product image" width="480" height="600"/>
                                 </a>
                             </div>
                             <div class="text">
@@ -269,7 +260,7 @@
                         <div class="figure-grid">
                             <div class="image">
                                 <a href="#'.$product['id'].'"  class="mfp-open">
-                                    <img src="'.$url.'product-1.png" alt="product image" width="360" />
+                                    <img src="'.$url.'product-1.png" alt="product image" width="200" height="300" />
                                 </a>
                             </div>
                             <div class="text">
@@ -310,7 +301,7 @@
                     <div class="popup-table">
                         <div class="popup-cell">
                             <div class="price">
-                                <span class="h3">'.$product['id'] .'</span>
+                                <span class="h3">'.$product['price'] .'</span>
                             </div>
                         </div>
                         <div class="popup-cell">
@@ -392,8 +383,9 @@
                                 </a>
                             </div>
                             <div class="text">
-                                <h2 class="title h4"><a href="product.html">'.$product['name'].'</a></h2>
-                                
+                                <h2 class="title h4">
+                                    <a href="product.html">'.$product['name'].'</a>
+                                </h2>                                
                                 <sup>'.$product['price'] .'</sup>
                                 <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
                             </div>
@@ -429,7 +421,7 @@
                     <div class="popup-table">
                         <div class="popup-cell">
                             <div class="price">
-                                <span class="h3">'.$product['id'] .'</span>
+                                <span class="h3">'.$product['price'] .'</span>
                             </div>
                         </div>
                         <div class="popup-cell">
@@ -455,19 +447,9 @@
                     }
                 } ?>
                 <!-- === product-item === -->
-
-
-
             </div> <!--/row-->
-
-
         </div> <!--/container-->
     </section>
-
-
-
-
-
 
     <!-- ========================  Instagram ======================== -->
 

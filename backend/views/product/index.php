@@ -22,12 +22,21 @@ $this->title = Yii::t('app', 'Products');
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-
             'name',
             'price',
             'sales_procent',
-            'status',
+            [
+                'attribute' => 'status',
+                'value' => function ($model){
+                    return  $model->status;
+                },
+                'filter' =>        [
+                    '1' => 'simple',
+                    '2' => 'famous',
+                    '3' => 'new',
+                    '4' => 'sale'
+                ],
+            ],
             'description:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],

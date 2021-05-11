@@ -1,5 +1,8 @@
 <?php
 
+use common\models\Product;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -26,7 +29,23 @@ $this->title = Yii::t('app', 'Product Images');
             ['class' => 'yii\grid\SerialColumn'],
 
             'image_url',
-            'product_id',
+            [
+                'attribute' => 'product_id',
+                'format' =>'raw',
+                'label'=>'Product Name',
+                'filter' => Select2::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'product_id',
+                    'data' => ArrayHelper::map(Product::find()->all(), 'id', 'name'),
+                    'theme' => Select2::THEME_BOOTSTRAP,
+                    'options' => [
+                        'placeholder' => Yii::t('app', 'Select ...'),
+                    ],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ])
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use app\models\Interview;
 use Yii;
 
 /**
@@ -46,6 +47,10 @@ class Category extends \yii\db\ActiveRecord
             'category_icon' => Yii::t('app', 'Category Icon'),
             'created_at' => Yii::t('app', 'Created At'),
         ];
+    }
+
+    public function getCategoryProduct(){
+        return $this->hasMany(CategoryProduct::className(), ['category_id' => 'id']);
     }
 
 

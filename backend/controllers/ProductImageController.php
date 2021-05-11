@@ -95,19 +95,21 @@ class ProductImageController extends Controller
     {
         $model = new ProductImage();
 
+//        $count = count(ProductImage::find()->where('product_id' == $model->product_id)->all()) + 1;
+
         if ($model->load(Yii::$app->request->post())) {
             $imageFile = UploadedFile::getInstance($model, 'image_url');
             if (isset($imageFile->size)){
                 $imageFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$model->product->name.'.'.$imageFile->extension);
             }
-            $model->image_url = $model->product->name.'.'.$imageFile->extension;
+            $model->image_url = $imageFile->baseName.$imageFile->extension;
             $model->save(false);
             return $this->redirect(['index', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model,
-        ]);
+            'model' => $model
+            ]);
     }
 
     /**
@@ -125,7 +127,7 @@ class ProductImageController extends Controller
             if (isset($imageFile->size)){
                 $imageFile->saveAs('uploads/'.$model->product->name.'.'.$imageFile->extension);
             }
-            $model->image_url = $model->product->name.'.'.$imageFile->extension;
+            $model->image_url = $imageFile->baseName.'.'.$imageFile->extension;
             $model->save(false);
             return $this->redirect(['index', 'id' => $model->id]);
         }

@@ -3,14 +3,9 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use common\models\Category;
 use frontend\models\CategoryHelper;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
-use common\widgets\Alert;
 
 AppAsset::register($this);
 ?>
@@ -87,7 +82,7 @@ AppAsset::register($this);
                         <!-- Furniture icons in dropdown-->
 
                         <li>
-                            <a href="site/category">
+                            <a href="#">
                                 Katalog
                                 <span class="open-dropdown">
                                     <i class="fa fa-angle-down"></i>
@@ -139,7 +134,18 @@ AppAsset::register($this);
 
         <div class="wrapper">
 
-        <?= $content ?>
+            <!-- ========================  Header content ======================== -->
+
+
+
+            <!-- ========================  Icons slider ======================== -->
+
+
+
+            <!-- ========================  Products widget ======================== -->
+
+
+            <?= $content ?>
     </div>
 
 <footer>
