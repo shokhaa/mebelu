@@ -64,8 +64,11 @@ class ProductController extends Controller
      */
     public function actionView($id)
     {
+        $image = \common\models\ProductImage::find()->where(['product_id' => $id])->asArray()->all();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'image' => $image,
         ]);
     }
 

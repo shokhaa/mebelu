@@ -28,20 +28,19 @@
                     <div class="col-md-4 col-sm-12 product-flex-info">
                         <div class="clearfix">
 
-                            <!-- === product-title === -->
-
                             <h1 class="title" data-title="mebelu"> <?= $model->name ?></h1>
 
                             <div class="clearfix">
-
-                                <!-- === price wrapper === -->
 
                                 <div class="price">
                                         <span class="h3">
                                             <?php
                                             if ($model->status == 4 ){
                                                 $price =strval( $model->price - $model->price*($model->sales_procent/100));
-                                                echo $price.'<small>'. $model->price .'</small>';
+                                                echo $price." "."so'm".'<small>'. $model->price ." "."so'm".'</small>';
+                                            }
+                                            else {
+                                                 echo $model->price." so'm";
                                             }
                                             ?>
                                         </span>
@@ -56,10 +55,15 @@
 
                     <div class="col-md-8 col-sm-12 product-flex-gallery">
                         <div class="owl-product-gallery open-popup-gallery">
-                            <a href="<?= $url ?>product-1.png"><img src="<?= $url ?>product-1.png" alt="product image" height="500" /></a>
-                            <a href="<?= $url ?>product-2.png"><img src="<?= $url ?>product-2.png" alt="product image" height="500" /></a>
-                            <a href="<?= $url ?>product-3.png"><img src="<?= $url ?>product-3.png" alt="product image" height="500" /></a>
-                            <a href="<?= $url ?>product-4.png"><img src="<?= $url ?>product-4.png" alt="product image" height="500" /></a>
+                            <?php
+                            $image = \common\models\ProductImage::find()->where(['product_id' => $model->id])->asArray()->all();
+                            foreach ($image as $item){
+                                ?>
+                                <a href="<?=  $url . ((sizeof($item)) ? ($item['image_url']) : ('product-1.png'))?>">
+                                    <img src="<?=  $url . ((sizeof($image)) ? ($item['image_url']) : ('product-1.png')) ?>  " alt="product image" height="500" /></a>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
 

@@ -2,11 +2,9 @@
 
 namespace backend\controllers;
 
-use common\models\Product;
 use Yii;
 use common\models\ProductImage;
 use common\models\ProductImageSearch;
-use yii\base\BaseObject;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -26,7 +24,6 @@ class ProductImageController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-//                'only' => ['logout'],
                 'rules' => [
                     [
                         'actions' => ['index', 'create', 'update', 'delete', 'view'],
@@ -100,9 +97,9 @@ class ProductImageController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $imageFile = UploadedFile::getInstance($model, 'image_url');
             if (isset($imageFile->size)){
-                $imageFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$model->product->name.'.'.$imageFile->extension);
+                $imageFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$imageFile->baseName.'.'.$imageFile->extension);
             }
-            $model->image_url = $imageFile->baseName.$imageFile->extension;
+            $model->image_url = $imageFile->baseName.'.'.$imageFile->extension;
             $model->save(false);
             return $this->redirect(['index', 'id' => $model->id]);
         }
