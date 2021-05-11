@@ -3,7 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use frontend\models\CategoryHelper;
+use yii\db\Query;
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 
@@ -96,15 +96,20 @@ AppAsset::register($this);
                                             <div class="row">
 
                                                 <!--icon item-->
-                                                <?php $categories = (new \yii\db\Query())->from('category')->all();
+                                                <?php $categories = (new Query())->from('category')->all();
                                                 foreach ($categories as $category){
-
-                                                    echo '    <div class="col-sm-3 col-xs-6">
-        <a href="/category/view?id=' . $category['id']. '">
-    <figure><i class="f-icon f-icon-' . $category['category_icon'] . '"></i>
-    <figcaption>' . $category['name'] .'
-    </figcaption></figure></a></div>';
-                                                }
+?>
+                                                <div class="col-sm-3 col-xs-6">
+                                                    <a href="/category/view?id=<?=$category['id']?>">
+                                                        <figure>
+                                                            <i class="f-icon f-icon-<?=$category['category_icon']?>">
+                                                            </i>
+                                                            <figcaption><?=$category['name']?>
+                                                            </figcaption>
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                      <?php                                      }
                                                 ?>
 
 
