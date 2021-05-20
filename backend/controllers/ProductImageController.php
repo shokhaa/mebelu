@@ -24,6 +24,7 @@ class ProductImageController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
+//                'only' => ['logout'],
                 'rules' => [
                     [
                         'actions' => ['index', 'create', 'update', 'delete', 'view'],

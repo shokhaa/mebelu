@@ -111,18 +111,16 @@ AppAsset::register($this);
                                                 </div>
                                                       <?php                                      }
                                                 ?>
-
-
-
+                                                    
                                             </div> <!--/row-->
                                         </div> <!--/categories-->
                                     </div> <!--/box-2-->
                                 </div> <!--/navbar-box-->
                             </div> <!--/navbar-dropdown-->
                         </li>
-                        <li><a href="site/contacts">Kontaktlar</a></li>
-                        <li><a href="site/news">Maqolalar</a></li>
-                        <li><a href="site/video-news">Video maqolalar</a></li>
+                        <li><a href="/site/contacts">Kontaktlar</a></li>
+                        <li><a href="/site/news">Maqolalar</a></li>
+                        <li><a href="/site/video-news">Video maqolalar</a></li>
                         <li>
                             <div style="">
                                 <a style="display: inline-block; background-color: #ffbb00; padding: 7px; border-radius: 2px; color: white" href="tel:+998977454255">+998977454255</a>
