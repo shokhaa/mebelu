@@ -13,15 +13,19 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(
-        ArrayHelper::map(\common\models\Category::find()->all(), 'id', 'name'),
-        ['prompt' => 'Select Category name']
-    ) ?>
-
-    <?= $form->field($model, 'product_id')->dropDownList(
-        ArrayHelper::map(\common\models\Product::find()->all(), 'id', 'name'),
-        ['prompt' => 'Select product name']
-    ) ?>
+    <div class="row">
+        <div class="col-md-6">    <?= $form->field($model, 'category_id')->dropDownList(
+                ArrayHelper::map(\common\models\Category::find()->all(), 'id', 'name'),
+                ['prompt' => 'Select Category name']
+            ) ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'product_id')->dropDownList(
+                ArrayHelper::map(\common\models\Product::find()->all(), 'id', 'name'),
+                ['prompt' => 'Select product name']
+            ) ?>
+        </div>
+    </div>
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>

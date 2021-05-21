@@ -8,17 +8,15 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Static Infos';
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="static-info-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+
 
     <p>
         <?= Html::a('Create Static Info', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -26,19 +24,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+//            'id',
             'phone_number',
             'location',
             'logo_photo',
             'instagram_profile',
-            //'telegram_profile',
-            //'facebook_profile',
-            //'youtube_profile',
-            //'address:ntext',
-            //'slider_photo1',
-            //'slider_photo2',
-            //'working_time:ntext',
-            //'email:email',
+            'telegram_profile',
+            'facebook_profile',
+            'youtube_profile',
+            'address:ntext',
+            'slider_photo1',
+            'slider_photo2',
+            'working_time:ntext',
+            'email:email',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
