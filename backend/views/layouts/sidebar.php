@@ -1,3 +1,8 @@
+<?php
+
+use hail812\adminlte\widgets\Menu;
+
+?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
 
@@ -16,7 +21,7 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <?php
-            echo \hail812\adminlte\widgets\Menu::widget([
+            echo Menu::widget([
                 'items' => [
 
                     ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
@@ -26,6 +31,7 @@
                     ['label' => 'Product Image', 'icon' => 'fas fa-images', 'url' => ['/product-image']],
                     ['label' => 'Category Product', 'icon' => 'fas fa-images', 'url' => ['/category-product']],
                     ['label' => 'Static Info', 'icon' => 'fas fa-images', 'url' => ['/static-info']],
+                    ['label' => 'Slider', 'icon' => 'fas fa-images', 'url' => ['/slider']],
 
 
                 ],
