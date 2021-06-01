@@ -5,9 +5,11 @@ namespace backend\controllers;
 use Yii;
 use common\models\StaticInfo;
 use common\models\StaticInfoSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * StaticInfoController implements the CRUD actions for StaticInfo model.
@@ -20,6 +22,17 @@ class StaticInfoController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+//                'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['index', 'create', 'update', 'delete', 'view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -66,12 +79,22 @@ class StaticInfoController extends Controller
     {
         $model = new StaticInfo();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $logoFile = UploadedFile::getInstance($model, 'logo_photo');
+
+            if (isset($logoFile->size)){
+                $logoFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$logoFile->baseName.'.'.$logoFile->extension);
+            }
+
+            $model->logo_photo = $logoFile->baseName.'.'.$logoFile->extension;
+
+
+            $model->save(false);
+            return $this->redirect(['index', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model
         ]);
     }
 
@@ -85,11 +108,19 @@ class StaticInfoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if ($model->load(Yii::$app->request->post())) {
+            $logoFile = UploadedFile::getInstance($model, 'logo_photo');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            if (isset($logoFile->size)){
+                $logoFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$logoFile->baseName.'.'.$logoFile->extension);
+            }
+
+            $model->logo_photo = $logoFile->baseName.'.'.$logoFile->extension;
+
+            $model->save(false);
+            return $this->redirect(['index', 'id' => $model->id]);
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);

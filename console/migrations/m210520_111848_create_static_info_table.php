@@ -22,8 +22,6 @@ class m210520_111848_create_static_info_table extends Migration
             'facebook_profile' => $this->string(),
             'youtube_profile' => $this->string(),
             'address' => $this->text(),
-            'slider_photo1' => $this->string(),
-            'slider_photo2' => $this->string(),
             'working_time' => $this->text(),
             'email' => $this->string()
         ]);

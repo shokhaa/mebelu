@@ -4,7 +4,6 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\StaticInfo;
 
 /**
  * StaticInfoSearch represents the model behind the search form of `common\models\StaticInfo`.
@@ -18,7 +17,7 @@ class StaticInfoSearch extends StaticInfo
     {
         return [
             [['id'], 'integer'],
-            [['phone_number', 'location', 'logo_photo', 'instagram_profile', 'telegram_profile', 'facebook_profile', 'youtube_profile', 'address', 'slider_photo1', 'slider_photo2', 'working_time', 'email'], 'safe'],
+            [['phone_number', 'location', 'logo_photo', 'instagram_profile', 'telegram_profile', 'facebook_profile', 'youtube_profile', 'address', 'working_time', 'email'], 'safe'],
         ];
     }
 
@@ -69,8 +68,6 @@ class StaticInfoSearch extends StaticInfo
             ->andFilterWhere(['like', 'facebook_profile', $this->facebook_profile])
             ->andFilterWhere(['like', 'youtube_profile', $this->youtube_profile])
             ->andFilterWhere(['like', 'address', $this->address])
-            ->andFilterWhere(['like', 'slider_photo1', $this->slider_photo1])
-            ->andFilterWhere(['like', 'slider_photo2', $this->slider_photo2])
             ->andFilterWhere(['like', 'working_time', $this->working_time])
             ->andFilterWhere(['like', 'email', $this->email]);
 

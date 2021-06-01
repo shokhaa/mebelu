@@ -2,7 +2,6 @@
 
 namespace common\models;
 
-use Yii;
 
 /**
  * This is the model class for table "static_info".
@@ -16,12 +15,10 @@ use Yii;
  * @property string|null $facebook_profile
  * @property string|null $youtube_profile
  * @property string|null $address
- * @property string|null $slider_photo1
- * @property string|null $slider_photo2
  * @property string|null $working_time
  * @property string|null $email
  */
-class StaticInfo extends \yii\db\ActiveRecord
+class StaticInfo extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -38,7 +35,7 @@ class StaticInfo extends \yii\db\ActiveRecord
     {
         return [
             [['address', 'working_time'], 'string'],
-            [['phone_number', 'location', 'logo_photo', 'instagram_profile', 'telegram_profile', 'facebook_profile', 'youtube_profile', 'slider_photo1', 'slider_photo2', 'email'], 'string', 'max' => 255],
+            [['phone_number', 'location', 'logo_photo', 'instagram_profile', 'telegram_profile', 'facebook_profile', 'youtube_profile', 'email'], 'string', 'max' => 255],
         ];
     }
 
@@ -57,8 +54,6 @@ class StaticInfo extends \yii\db\ActiveRecord
             'facebook_profile' => 'Facebook Profile',
             'youtube_profile' => 'Youtube Profile',
             'address' => 'Address',
-            'slider_photo1' => 'Slider Photo1',
-            'slider_photo2' => 'Slider Photo2',
             'working_time' => 'Working Time',
             'email' => 'Email',
         ];

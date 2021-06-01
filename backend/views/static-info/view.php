@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\web\YiiAsset;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -9,7 +10,7 @@ use yii\widgets\DetailView;
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Static Infos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+YiiAsset::register($this);
 ?>
 <div class="static-info-view">
 
@@ -38,8 +39,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'facebook_profile',
             'youtube_profile',
             'address:ntext',
-            'slider_photo1',
-            'slider_photo2',
             'working_time:ntext',
             'email:email',
         ],

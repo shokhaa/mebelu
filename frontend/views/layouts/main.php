@@ -43,7 +43,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-
+<?php $static_infos =  (new Query())->from('static_info')->one()?>
 
     <nav class="navbar-fixed">
 
@@ -57,7 +57,7 @@ AppAsset::register($this);
                 <!-- Setup your logo here-->
 
                 <a href="/" class="logo">
-                    <img src="<?= $url?>logo.png" alt="logotip image" />
+                    <img src="<?= $url.$static_infos['logo_photo']?>" alt="logotip image" />
                 </a>
 
                 <!-- Mobile toggle menu -->
@@ -137,17 +137,6 @@ AppAsset::register($this);
 
         <div class="wrapper">
 
-            <!-- ========================  Header content ======================== -->
-
-
-
-            <!-- ========================  Icons slider ======================== -->
-
-
-
-            <!-- ========================  Products widget ======================== -->
-
-
             <?= $content ?>
     </div>
 
@@ -192,12 +181,6 @@ AppAsset::register($this);
                 </div>
 
                 <div class="col-sm-4 col-md-2">
-                    <!--                    <h5>Recources</h5>-->
-                    <!--                    <ul>-->
-                    <!--                        <li><a href="#">Design</a></li>-->
-                    <!--                        <li><a href="#">Projects</a></li>-->
-                    <!--                        <li><a href="#">Sales</a></li>-->
-                    <!--                    </ul>-->
                 </div>
 
                 <div class="col-sm-12 col-md-6">

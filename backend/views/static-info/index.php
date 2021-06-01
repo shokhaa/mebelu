@@ -33,8 +33,6 @@ $this->title = 'Static Infos';
             'facebook_profile',
             'youtube_profile',
             'address:ntext',
-            'slider_photo1',
-            'slider_photo2',
             'working_time:ntext',
             'email:email',
 
