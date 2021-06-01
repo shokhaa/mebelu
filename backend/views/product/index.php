@@ -1,5 +1,6 @@
 <?php
 
+use common\models\constants\ProductStatus;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -28,14 +29,9 @@ $this->title = Yii::t('app', 'Products');
             [
                 'attribute' => 'status',
                 'value' => function ($model){
-                    return  $model->status;
+                    return  ProductStatus::getString($model->status);
                 },
-                'filter' =>        [
-                    '1' => 'simple',
-                    '2' => 'famous',
-                    '3' => 'new',
-                    '4' => 'sale'
-                ],
+                'filter' => ProductStatus::getList()
             ],
             'description:ntext',
 

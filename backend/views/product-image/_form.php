@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Product;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -16,7 +17,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'image_url')->fileInput() ?>
 
     <?= $form->field($model, 'product_id')->dropDownList(
-        ArrayHelper::map(\common\models\Product::find()->all(), 'id', 'name'),
+        ArrayHelper::map(Product::find()->all(), 'id', 'name'),
         ['prompt' => 'Select product name']
     ) ?>
 

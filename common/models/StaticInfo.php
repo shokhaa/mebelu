@@ -3,6 +3,8 @@
 namespace common\models;
 
 
+use yii\db\ActiveRecord;
+
 /**
  * This is the model class for table "static_info".
  *

@@ -32,6 +32,9 @@ $this->title = Yii::t('app', 'Product Images');
             [
                 'attribute' => 'product_id',
                 'format' =>'raw',
+                'value' => function ($model){
+                    return $model->product->name;
+                },
                 'label'=>'Product Name',
                 'filter' => Select2::widget([
                     'model' => $searchModel,
