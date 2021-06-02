@@ -1,5 +1,8 @@
 <?php
 
+use common\models\constants\ProductStatus;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -21,15 +24,7 @@ use yii\widgets\ActiveForm;
             <?= ($model->status == 4)?$form->field($model, 'sales_procent')->textInput(['min'=>0,'max' => 100]):false
             ?>
 
-            <?= $form->field($model, 'status')->dropDownList(
-                [
-                    '1' => 'simple',
-                    '2' => 'famous',
-                    '3' => 'new',
-                    '4' => 'sale'
-                ],
-                ['prompt' => 'Tanlang']
-            ) ?>
+            <?= $form->field($model, 'status')->dropDownList(ProductStatus::getList()) ?>
         </div>
         <div class="col-md-6">
             <?= $form->field($model, 'description')->textarea(['rows' => 9]) ?>

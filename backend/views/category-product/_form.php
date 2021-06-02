@@ -1,5 +1,8 @@
 <?php
 
+use common\models\Category;
+use common\models\Product;
+use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -14,16 +17,27 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row">
-        <div class="col-md-6">    <?= $form->field($model, 'category_id')->dropDownList(
-                ArrayHelper::map(\common\models\Category::find()->all(), 'id', 'name'),
-                ['prompt' => 'Select Category name']
-            ) ?>
+        <div class="col-md-6">
+            <?= $form->field($model, 'category_id')->widget(Select2::classname(), [
+                'data' => ArrayHelper::map(Category::find()->all(), 'id', 'name'),
+                'language' => 'en',
+                'options' => ['placeholder' => Yii::t('app', 'Select ...')],
+                'pluginOptions' => [
+                    'allowClear' => true
+                ],
+            ])
+            ?>
         </div>
         <div class="col-md-6">
-            <?= $form->field($model, 'product_id')->dropDownList(
-                ArrayHelper::map(\common\models\Product::find()->all(), 'id', 'name'),
-                ['prompt' => 'Select product name']
-            ) ?>
+            <?= $form->field($model, 'product_id')->widget(Select2::classname(), [
+                'data' => ArrayHelper::map(Product::find()->all(), 'id', 'name'),
+                'language' => 'en',
+                'options' => ['placeholder' => Yii::t('app', 'Select ...')],
+                'pluginOptions' => [
+                    'allowClear' => true
+                ],
+            ])
+            ?>
         </div>
     </div>
     <div class="form-group">

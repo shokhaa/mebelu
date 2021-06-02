@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Product;
+use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -16,10 +17,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'image_url')->fileInput() ?>
 
-    <?= $form->field($model, 'product_id')->dropDownList(
-        ArrayHelper::map(Product::find()->all(), 'id', 'name'),
-        ['prompt' => 'Select product name']
-    ) ?>
+    <?= $form->field($model, 'product_id')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(Product::find()->all(), 'id', 'name'),
+        'language' => 'en',
+        'options' => ['placeholder' => Yii::t('app', 'Select ...')],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ])
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

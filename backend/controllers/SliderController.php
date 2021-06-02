@@ -9,6 +9,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * SliderController implements the CRUD actions for Slider model.
@@ -78,12 +79,18 @@ class SliderController extends Controller
     {
         $model = new Slider();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $sliderFile = UploadedFile::getInstance($model, 'image_url');
+            if (isset($sliderFile->size)){
+                $sliderFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$sliderFile->baseName.'.'.$imageFile->extension);
+            }
+            $model->image_url = $sliderFile->baseName.'.'.$sliderFile->extension;
+            $model->save(false);
+            return $this->redirect(['index', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model
         ]);
     }
 
