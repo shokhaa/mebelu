@@ -34,6 +34,7 @@ class Slider extends ActiveRecord
         return [
             [['image_url'], 'required'],
             [['created_at'], 'safe'],
+            [['image_url'], 'file', 'skipOnEmpty' => false, 'extensions' => 'jpg, png, jpeg'],
             [['image_url', 'slider_title', 'slider_info', 'slider_btn_title', 'slider_btn_link'], 'string', 'max' => 255],
         ];
     }

@@ -82,7 +82,7 @@ class SliderController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $sliderFile = UploadedFile::getInstance($model, 'image_url');
             if (isset($sliderFile->size)){
-                $sliderFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$sliderFile->baseName.'.'.$imageFile->extension);
+                $sliderFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$sliderFile->baseName.'.'.$sliderFile->extension);
             }
             $model->image_url = $sliderFile->baseName.'.'.$sliderFile->extension;
             $model->save(false);

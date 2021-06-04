@@ -57,7 +57,7 @@ AppAsset::register($this);
                 <!-- Setup your logo here-->
 
                 <a href="/" class="logo">
-                    <img src="<?= $url.$static_infos['logo_photo']?>" alt="logotip image" />
+                    <img src="" alt="logotip image" />
                 </a>
 
                 <!-- Mobile toggle menu -->

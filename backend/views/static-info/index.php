@@ -26,12 +26,9 @@ $this->title = 'Static Infos';
 
 //            'id',
             'phone_number',
-            'location',
+
             'logo_photo',
-            'instagram_profile',
-            'telegram_profile',
-            'facebook_profile',
-            'youtube_profile',
+
             'address:ntext',
             'working_time:ntext',
             'email:email',

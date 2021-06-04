@@ -25,13 +25,12 @@ use hail812\adminlte\widgets\Menu;
                 'items' => [
 
                     ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
-                    ['label' => 'Category', 'icon' => 'fas fa-tree', 'url' => ['/category'],
-                    ],
+                    ['label' => 'Category', 'icon' => 'fas fa-tree', 'url' => ['/category'],],
                     ['label' => 'Product', 'icon' => 'fas fa-couch', 'url' => ['/product']],
                     ['label' => 'Product Image', 'icon' => 'fas fa-images', 'url' => ['/product-image']],
-                    ['label' => 'Category Product', 'icon' => 'fas fa-images', 'url' => ['/category-product']],
-                    ['label' => 'Static Info', 'icon' => 'fas fa-images', 'url' => ['/static-info']],
-                    ['label' => 'Slider', 'icon' => 'fas fa-images', 'url' => ['/slider']],
+                    ['label' => 'Category Product', 'icon' => 'fas fa-users', 'url' => ['/category-product']],
+                    ['label' => 'Static Info', 'icon' => 'fas fa-info-circle', 'url' => ['/static-info']],
+                    ['label' => 'Slider', 'icon' => 'fas fa-stream', 'url' => ['/slider']],
 
 
                 ],
