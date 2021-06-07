@@ -17,8 +17,8 @@ class m210601_145517_create_account_table extends Migration
             'name' => $this->string()->notNull()->unique(),
             'link' => $this->string()->notNull(),
             'icon' => $this->string()->defaultValue('fa fa-facebook'),
-            'created_at' => time(),
-            'updated_at' => time(),
+            'created_at' =>  $this->timestamp(),
+            'updated_at' =>  $this->timestamp(),
         ]);
     }
 
