@@ -29,8 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-
-//            'category_id',
             [
                 'attribute' => 'category_id',
                 'format' =>'raw',
@@ -50,8 +48,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'product_id',
-                'format' =>'raw',
-                'label'=>'Product Name',
+                'value' => '',
+                'format' => 'raw',
+                'label' => 'Product Name',
                 'filter' => Select2::widget([
                     'model' => $searchModel,
                     'attribute' => 'product_id',
