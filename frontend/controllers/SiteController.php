@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Category;
 use common\models\Product;
+use common\models\Slider;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -70,10 +71,13 @@ class SiteController extends Controller
 
         $products = Product::find()->asArray()->all();
 
+        $sliders = Slider::find()->asArray()->all();
+
         return $this->render('index',
             [
                 'products' => $products,
-                'categories' => $categories
+                'categories' => $categories,
+                'sliders' => $sliders
             ]);
     }
     public function actionContacts(){
