@@ -1,4 +1,10 @@
-<?php $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
+<?php
+
+use common\models\Category;
+use common\models\Product;
+use common\models\ProductImage;
+
+$url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
 
 
 <section class="header-content">
@@ -78,6 +84,7 @@
 
             <!-- === icon item === -->
             <?php
+            /** @var Category $categories */
             foreach ($categories as $category) {
                 ?>
 
@@ -94,6 +101,7 @@
         </div> <!--/owl-icons-->
     </div> <!--/container-->
 </section>
+
 <section class="products">
 
     <div class="container">
@@ -118,12 +126,12 @@
 
             <?php
             $count = 0;
-            /** @var TYPE_NAME $products */
+            /** @var Product $products */
             foreach ($products as $product) {
 
 
-                if ($product['status'] == 2) {
-                    $image = \common\models\ProductImage::find()->where(['product_id' => $product['id']])->asArray()->all();
+                if ($product['status'] == 2 && $count < 6) {
+                    $image = ProductImage::find()->where(['product_id' => $product['id']])->asArray()->all();
                     $count++;
                     ?>
                     <div class="col-md-4 col-xs-6">
@@ -206,7 +214,7 @@
                     </div> <!--popup-main-->
 
                     <?php
-                    if ($count > 5) {
+                    if ($count == 6) {
                         ?>
                         <div class="wrapper-more">
                             <a href="products-grid.html" class="btn btn-main">Ko'proq ko'rish</a>
@@ -252,8 +260,8 @@
             $count = 0;
             foreach ($products as $product) {
 
-                if ($product['status'] == 3) {
-                    $image_new = \common\models\ProductImage::find()->where(['product_id' => $product['id']])->asArray()->all();
+                if ($product['status'] == 3 && $count < 6) {
+                    $image_new = ProductImage::find()->where(['product_id' => $product['id']])->asArray()->all();
                     $count++;
                     //                        <!--cart item-->
                     ?>
@@ -337,7 +345,7 @@
                     </div> <!--popup-main-->
 
                     <?php
-                    if ($count > 5) {
+                    if ($count == 6) {
                         ?>
                         <div class="wrapper-more">
                             <a href="products-grid.html" class="btn btn-main">Ko'proq ko'rish</a>
@@ -381,8 +389,8 @@
             $count = 0;
             foreach ($products as $product) {
 
-                if ($product['status'] == 4) {
-                    $image_sale = \common\models\ProductImage::find()->where(['product_id' => $product['id']])->asArray()->all();
+                if ($product['status'] == 4 && $count < 6) {
+                    $image_sale = ProductImage::find()->where(['product_id' => $product['id']])->asArray()->all();
                     $count++;
                     $product['price'] = ceil($product['price'] - $product['price'] * ($product['sales_procent'] / 100));
                     ?>
@@ -467,12 +475,13 @@
                     </div> <!--popup-main-->
 
                     <?php
-                    if ($count > 5) { ?>
+                    if ($count == 6) { ?>
 
                         <div class="wrapper-more">
                             <a href="products-grid.html" class="btn btn-main">Ko'proq ko'rish</a>
                         </div>
-                    <?php }
+                    <?php
+                    }
 
                 }
             } ?>
