@@ -1,8 +1,7 @@
 <?php
 
 use common\models\constants\ProductStatus;
-use kartik\select2\Select2;
-use yii\helpers\ArrayHelper;
+use dosamigos\tinymce\TinyMce;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -19,16 +18,35 @@ use yii\widgets\ActiveForm;
         <div class="col-md-6">
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
+        </div>
+
+        <div class="col-md-3">
             <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
-
-            <?= ($model->status == 4)?$form->field($model, 'sales_procent')->textInput(['min'=>0,'max' => 100]):false
-            ?>
-
+        </div>
+        <div class="col-md-1">
             <?= $form->field($model, 'status')->dropDownList(ProductStatus::getList()) ?>
         </div>
-        <div class="col-md-6">
-            <?= $form->field($model, 'description')->textarea(['rows' => 9]) ?>
+        <div class="col-md-2">
+            <?= ($model->status == 4)?$form->field($model, 'sales_procent')->textInput(['min'=>0,'max' => 100]):false
+            ?>
         </div>
+
+
+
+
+
+            <?= $form->field($model, 'description')->widget(TinyMce::className(),  [
+                'options' => ['rows' => 6],
+                'language' => 'en',
+                'clientOptions' => [
+                    'plugins' => [
+                        "advlist autolink lists link charmap print preview anchor",
+                        "searchreplace visualblocks code fullscreen",
+                        "insertdatetime media table contextmenu paste"
+                    ],
+                    'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+                ]
+            ]) ?>
     </div>
 
 
