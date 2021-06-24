@@ -57,7 +57,7 @@ AppAsset::register($this);
                 <!-- Setup your logo here-->
 
                 <a href="/" class="logo">
-                    <img src="" alt="logotip image" />
+                    <img src="<?= $url.$static_infos['logo_photo'] ?>" alt="logotip image" />
                 </a>
 
                 <!-- Mobile toggle menu -->
@@ -123,7 +123,7 @@ AppAsset::register($this);
                         <li><a href="/site/video-news">Video maqolalar</a></li>
                         <li>
                             <div style="">
-                                <a style="display: inline-block; background-color: #ffbb00; padding: 7px; border-radius: 2px; color: white" href="tel:+998977454255">+998977454255</a>
+                                <a style="display: inline-block; background-color: #ffbb00; padding: 7px; border-radius: 2px; color: white" href="tel:+998977454255"><?= $static_infos['phone_number'] ?></a>
                             </div>
                         </li>
 
@@ -148,12 +148,11 @@ AppAsset::register($this);
             <div class="row">
                 <div class="col-sm-8">
                     <h2>Bizning showroomga tashrif buyuring.</h2>
-                    <p>200 12th Ave, New York, NY 10001, USA</p>
-                    <p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
+                   <p><?= $static_infos['address'] ?></p>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <a href="https://www.google.com/maps/@41.3592287,69.276351,18z" class="btn btn-clean"><span class="icon icon-map-marker"></span>Manzilimiz</a>
-                    <div class="call-us h4"><span class="icon icon-phone-handset"></span> <a href="tel:+998977454255">+998977454255</a></div>
+                    <a href="<?= $static_infos['location'] ?>" class="btn btn-clean"><span class="icon icon-map-marker"></span>Manzilimiz</a>
+                    <div class="call-us h4"><span class="icon icon-phone-handset"></span> <a href="tel:+998977454255"><?= $static_infos['phone_number'] ?></a></div>
 
                 </div>
             </div>
@@ -202,11 +201,10 @@ AppAsset::register($this);
                 </div>
                 <div class="col-sm-6 links">
                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a target="_blank" href="<?= $static_infos['facebook_profile'] ?>"><i class="fa fa-facebook"></i></a></li>
+                        <li><a target="_blank" href="<?= $static_infos['instagram_profile'] ?>"><i class="fa fa-instagram"></i></a></li>
+                        <li><a target="_blank" href="<?= $static_infos['telegram_profile'] ?>"><i class="fa fa-telegram"></i></a></li>
+                        <li><a target="_blank" href="<?= $static_infos['youtube_profile'] ?>"><i class="fa fa-youtube"></i></a></li>
                     </ul>
                 </div>
             </div>
