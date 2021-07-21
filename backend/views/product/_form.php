@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Category;
 use common\models\constants\ProductStatus;
 use dosamigos\tinymce\TinyMce;
 use yii\helpers\Html;
@@ -45,6 +46,7 @@ use yii\widgets\ActiveForm;
             'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
         ]
     ]) ?>
+    <?= $form->field($model, 'price')->checkboxList(Category::find()->all(), ['separator' => '</br>']) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

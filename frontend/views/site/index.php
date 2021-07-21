@@ -42,7 +42,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
     <!-- === header === -->
 
     <header class="hidden">
-        <h2>Product categories</h2>
+        <h2><?= Yii::t('app', 'Product Categories') ?></h2>
     </header>
 
     <div class="container">
@@ -78,9 +78,9 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
         <header>
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 text-center">
-                    <h2 class="title">Ommabop mahsulotlar</h2>
+                    <h2 class="title"><?= Yii::t('app', 'Ommabop Mahsulotlar') ?></h2>
                     <div class="text">
-                        <p>Eng xaridorgir tovarlar</p>
+                        <p><?= Yii::t('app', 'Eng xaridorgir tovarlar') ?></p>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                                 <div class="text">
                                     <h2 class="title h4"><a href="/product/view/id=<?=$product['id']?>"><?= $product['name'] ?></a></h2>
 
-                                    <sup><?= $product['price']." " ?>so'm</sup>
+                                    <sup><?= $product['price']." " ?><?= Yii::t('app', 'so\'m') ?></sup>
                                 </div>
                             </div>
                         </article>
@@ -165,13 +165,13 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                             <div class="popup-table">
                                 <div class="popup-cell">
                                     <div class="price">
-                                        <span class="h3"><?= $product['price'] ?> so'm</span>
+                                        <span class="h3"><?= $product['price'] ?> <?= Yii::t('app', 'so\'m') ?></span>
                                     </div>
                                 </div>
                                 <div class="popup-cell">
                                     <div class="popup-buttons">
                                         <a href="/product/view?id=<?= $product['id'] ?>"><span
-                                                    class="icon icon-eye"></span> <span class="hidden-xs">Ko'proq ma'lumot</span></a>
+                                                    class="icon icon-eye"></span> <span class="hidden-xs"><?= Yii::t('app', 'Ko\'proq mahsulot') ?></span></a>
 
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                     if ($count == 6) {
                         ?>
                         <div class="wrapper-more">
-                            <a href="products-grid.html" class="btn btn-main">Ko'proq ko'rish</a>
+                            <a href="products-grid.html" class="btn btn-main"><?= Yii::t('app', 'Ko\'proq ko\'rish') ?></a>
                         </div>
                     <?php }
 
@@ -210,9 +210,9 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
         <header>
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 text-center">
-                    <h2 class="title">Yangi mahsulotlar</h2>
+                    <h2 class="title"><?= Yii::t('app', 'Yangi mahsulotlar') ?></h2>
                     <div class="text">
-                        <p>Yangi qo'shilgan tovarlar</p>
+                        <p><?= Yii::t('app', 'Yangi qo\'shilgan tovarlar') ?></p>
                     </div>
                 </div>
             </div>
@@ -256,7 +256,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                                 <div class="text">
                                     <h2 class="title h4"><a href="/product/view/id=<?=$product['id']?>"><?= $product['name'] ?></a></h2>
 
-                                    <sup><?= $product['price']." " ?>so'm</sup>
+                                    <sup><?= $product['price']." " ?><?= Yii::t('app', 'So\'m') ?></sup>
                                 </div>
                             </div>
                         </article>
@@ -302,7 +302,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                                 <div class="popup-cell">
                                     <div class="popup-buttons">
                                         <a href="/product/view?id=<?= $product['id'] ?>"><span
-                                                    class="icon icon-eye"></span> <span class="hidden-xs">Ko'proq ma'lumot</span></a>
+                                                    class="icon icon-eye"></span> <span class="hidden-xs"><?= Yii::t('app', 'Ko\'proq ma\'lumot') ?></span></a>
 
                                     </div>
                                 </div>
@@ -315,7 +315,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                     if ($count == 6) {
                         ?>
                         <div class="wrapper-more">
-                            <a href="products-grid.html" class="btn btn-main">Ko'proq ko'rish</a>
+                            <a href="products-grid.html" class="btn btn-main"><?= Yii::t('app', 'Ko\'proq ko\'rish') ?></a>
                         </div>
                     <?php }
 
@@ -339,9 +339,9 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
         <header>
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 text-center">
-                    <h2 class="title">Chegirmadagi mahsulotlar</h2>
+                    <h2 class="title"><?= Yii::t('app', 'Chegirmadagi mahsulotlar') ?></h2>
                     <div class="text">
-                        <p>Chegirma e'lon qilingan tovarlar</p>
+                        <p><?= Yii::t('app', 'Chegirma e\'lon qilingan tovarlar') ?></p>
                     </div>
                 </div>
             </div>
@@ -386,7 +386,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                                     <h2 class="title h4">
                                         <a href="/product/view/id=<?=$product['id']?>"><?= $product['name'] ?></a>
                                     </h2>
-                                    <sup><?= $product['price']." " ?>so'm</sup>
+                                    <sup><?= $product['price']." " ?><?= Yii::t('app', 'so\'m') ?></sup>
                                 </div>
                             </div>
                         </article>
@@ -425,14 +425,14 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                             <div class="popup-table">
                                 <div class="popup-cell">
                                     <div class="price">
-                                        <span class="h3"><?= $product['price'] ?> so'm</span>
+                                        <span class="h3"><?= $product['price'] ?><?= Yii::t('app', 'so\'m') ?></span>
                                     </div>
                                 </div>
                                 <div class="popup-cell">
                                     <div class="popup-buttons">
                                         <a href="/product/view?id=<?= $product['id'] ?>">
                                             <span class="icon icon-eye"></span>
-                                            <span class="hidden-xs">Ko'proq ma'lumot</span></a>
+                                            <span class="hidden-xs"><?= Yii::t('app', 'Ko\'proq ma\'lumot') ?></span></a>
 
                                     </div>
                                 </div>
@@ -445,7 +445,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                     if ($count == 6) { ?>
 
                         <div class="wrapper-more">
-                            <a href="products-grid.html" class="btn btn-main">Ko'proq ko'rish</a>
+                            <a href="products-grid.html" class="btn btn-main"><?= Yii::t('app', 'Ko\'proq ko\'rish') ?></a>
                         </div>
                     <?php
                     }
@@ -455,49 +455,4 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
             <!-- === product-item === -->
         </div> <!--/row-->
     </div> <!--/container-->
-</section>
-
-<!-- ========================  Instagram ======================== -->
-
-<section class="instagram">
-
-    <!-- === instagram header === -->
-
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-offset-2 col-md-8 text-center">
-                    <h2 class="h2 title">Follow us <i class="fa fa-instagram fa-2x"></i> Instagram </h2>
-                    <div class="text">
-                        <p>@InstaFurnitureFactory</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- === instagram gallery === -->
-
-    <div class="gallery clearfix">
-        <a class="item" href="#">
-            <img src="<?= $url ?>square-1.jpg" alt="Alternate text"/>
-        </a>
-        <a class="item" href="#">
-            <img src="<?= $url ?>square-2.jpg" alt="Alternate text"/>
-        </a>
-        <a class="item" href="#">
-            <img src="<?= $url ?>square-3.jpg" alt="Alternate text"/>
-        </a>
-        <a class="item" href="#">
-            <img src="<?= $url ?>square-4.jpg" alt="Alternate text"/>
-        </a>
-        <a class="item" href="#">
-            <img src="<?= $url ?>square-5.jpg" alt="Alternate text"/>
-        </a>
-        <a class="item" href="#">
-            <img src="<?= $url ?>square-6.jpg" alt="Alternate text"/>
-        </a>
-
-    </div> <!--/gallery-->
-
 </section>

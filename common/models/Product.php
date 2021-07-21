@@ -12,6 +12,7 @@ use Yii;
  * @property string $price
  * @property int|null $sales_procent
  * @property int|null $status
+ * @property CategoryProduct[] $categories
  * @property string|null $description
  */
 class Product extends \yii\db\ActiveRecord
@@ -23,6 +24,7 @@ class Product extends \yii\db\ActiveRecord
     {
         return 'product';
     }
+    public $relatives;
 
     /**
      * {@inheritdoc}
@@ -35,7 +37,8 @@ class Product extends \yii\db\ActiveRecord
             ['sales_procent', 'integer', 'min'=>0, 'max' => 100],
             [['description'], 'string'],
             ['name', 'string', 'max' => 255],
-            [['name'], 'unique']
+            [['name'], 'unique'],
+            [['categories'], 'safe']
 
         ];
     }
@@ -52,6 +55,7 @@ class Product extends \yii\db\ActiveRecord
             'sales_procent' => Yii::t('app', 'Sales Procent'),
             'status' => Yii::t('app', 'Status'),
             'description' => Yii::t('app', 'Description'),
+            'categories' => Yii::t('app', 'Categories')
         ];
     }
 

@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use common\models\Category;
+use common\models\CategoryProduct;
 use Yii;
 use common\models\Product;
 use common\models\ProductSearch;
@@ -80,6 +82,9 @@ class ProductController extends Controller
     public function actionCreate()
     {
         $model = new Product();
+        $productCategories = new CategoryProduct();
+        $categories = new Category();
+//        $categories = [];
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index', 'id' => $model->id]);
@@ -87,6 +92,8 @@ class ProductController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'categories' => $categories,
+            'productCategories' => $productCategories
         ]);
     }
 

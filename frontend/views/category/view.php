@@ -11,7 +11,7 @@ $this->title = $model->name;
 <section class="main-header" style="background-image:url(<?= $url?>gallery-2.jpg)">
     <header class="hidden">
         <div class="container">
-            <h1 class="h2 title">Category</h1>
+            <h1 class="h2 title"><?= Yii::t('app', 'Category') ?></h1>
         </div>
     </header>
 </section>
@@ -26,7 +26,7 @@ $this->title = $model->name;
                 <div class="col-md-offset-2 col-md-8 text-center">
                     <h2 class="title"><?= $model->name ?></h2>
                     <div class="text">
-                        <p>Tanlangan kategoriya</p>
+                        <p><?= Yii::t('app', 'Tanlangan kategoriya') ?></p>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@ $this->title = $model->name;
             for($i = 0; $i < count($category); $i++){
                 $product = Product::findOne($category[$i]->product_id);
                 if ($product){
-                    $image = \common\models\ProductImage::find()->where(['product_id' => $product['id']])->asArray()->all();
+                    $image = ProductImage::find()->where(['product_id' => $product['id']])->asArray()->all();
                     if ($product->status == 4){
                         $product->price =strval($product->price - $product->price*($product->sales_procent/100));
                     } ?>
@@ -60,7 +60,7 @@ $this->title = $model->name;
                             </div>
                             <div class="text">
                                 <h2 class="title h4"><a href="/product/view?id=<?= $product->id?>"><?=$product->name?></a></h2>
-                                <sup><?=$product->price?> so'm</sup>
+                                <sup><?=$product->price?> <?= Yii::t('app', 'so\'m') ?></sup>
                             </div>
                         </div>
                     </article>
@@ -99,12 +99,12 @@ $this->title = $model->name;
                     <div class="popup-table">
                         <div class="popup-cell">
                             <div class="price">
-                                <span class="h3"><?=$product->price ?> so'm</span>
+                                <span class="h3"><?=$product->price ?><?= Yii::t('app', 'so\'m') ?></span>
                             </div>
                         </div>
                         <div class="popup-cell">
                             <div class="popup-buttons">
-                                <a href="/product/view?id=<?=$product->id?>"><span class="icon icon-eye"></span> <span class="hidden-xs">Ko'proq ma'lumot</span></a>
+                                <a href="/product/view?id=<?=$product->id?>"><span class="icon icon-eye"></span> <span class="hidden-xs"><?= Yii::t('app', 'Ko\'proq ma\'lumot') ?></span></a>
                               
                             </div>
                         </div>

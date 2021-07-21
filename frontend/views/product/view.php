@@ -12,7 +12,7 @@
                 <h1 class="h2 title"><?= $model->name ?></h1>
                 <ol class="breadcrumb breadcrumb-inverted">
                     <li><a href="/site/index"><span class="icon icon-home"></span></a></li>
-                    <li><a class="active" href="/product/view?id=<?= $model->id ?>">Mahsulot</a></li>
+                    <li><a class="active" href="/product/view?id=<?= $model->id ?>"><?= Yii::t('app', 'Mahsulot') ?></a></li>
                 </ol>
             </div>
         </header>
@@ -56,7 +56,7 @@
                     <div class="col-md-8 col-sm-12 product-flex-gallery">
                         <div class="owl-product-gallery open-popup-gallery">
                             <?php
-                            $image = \common\models\ProductImage::find()->where(['product_id' => $model->id])->asArray()->all();
+                            $image = ProductImage::find()->where(['product_id' => $model->id])->asArray()->all();
                             foreach ($image as $item){
                                 ?>
                                 <a href="<?=  $url . ((sizeof($item)) ? ($item['image_url']) : ('product-1.png'))?>">
