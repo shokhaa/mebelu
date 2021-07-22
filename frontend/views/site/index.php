@@ -4,6 +4,7 @@ use common\models\Category;
 use common\models\Product;
 use common\models\ProductImage;
 use common\models\Slider;
+use yii\helpers\Url;
 
 $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
 
@@ -55,7 +56,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
             foreach ($categories as $category) {
                 ?>
 
-                <a href="/category/view?id=<?= $category['id'] ?>">
+                <a href="<?= Url::to('/category/view') ?>?id=<?= $category['id'] ?>">
                     <figure>
                         <i class="f-icon f-icon-<?= $category['category_icon'] ?>"></i>
                         <figcaption><?= $category['name'] ?></figcaption>
@@ -170,7 +171,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                                 </div>
                                 <div class="popup-cell">
                                     <div class="popup-buttons">
-                                        <a href="/product/view?id=<?= $product['id'] ?>"><span
+                                        <a href="<?= Url::to('/product/view') ?>?id=<?= $product['id'] ?>"><span
                                                     class="icon icon-eye"></span> <span class="hidden-xs"><?= Yii::t('app', 'Ko\'proq mahsulot') ?></span></a>
 
                                     </div>
@@ -301,7 +302,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                                 </div>
                                 <div class="popup-cell">
                                     <div class="popup-buttons">
-                                        <a href="/product/view?id=<?= $product['id'] ?>"><span
+                                        <a href="<?= Url::to('/product/view') ?>?id=<?= $product['id'] ?>"><span
                                                     class="icon icon-eye"></span> <span class="hidden-xs"><?= Yii::t('app', 'Ko\'proq ma\'lumot') ?></span></a>
 
                                     </div>
@@ -430,7 +431,7 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
                                 </div>
                                 <div class="popup-cell">
                                     <div class="popup-buttons">
-                                        <a href="/product/view?id=<?= $product['id'] ?>">
+                                        <a href="<?= Url::to('/product/view') ?>?id=<?= $product['id'] ?>">
                                             <span class="icon icon-eye"></span>
                                             <span class="hidden-xs"><?= Yii::t('app', 'Ko\'proq ma\'lumot') ?></span></a>
 
@@ -455,4 +456,27 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
             <!-- === product-item === -->
         </div> <!--/row-->
     </div> <!--/container-->
+
+
+
 </section>
+<section class="products" style="background-color: #ffbb00">
+<div class="container  d-flex justify-content-center">
+    <div style="width: 210px; margin-right: 15px;" class="col-md-2">
+        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."blum.jpg" ?>" alt="brand image"></a>
+    </div>
+    <div style="width: 210px; margin-right: 15px;" class="col-md-2">
+        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."samet.jpg" ?>" alt="brand image"></a>
+    </div>
+    <div style="width: 210px; margin-right: 15px;" class="col-md-2">
+        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."starax.jpg" ?>" alt="brand image"></a>
+    </div>
+    <div style="width: 210px; margin-right: 15px;" class="col-md-2">
+        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."hafele.jpg" ?>" alt="brand image"></a>
+    </div>
+    <div style="width: 210px;" class="col-md-2">
+        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."hettich.jpg" ?>" alt="brand image"></a>
+    </div>
+</div>
+</section>
+
