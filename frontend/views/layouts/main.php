@@ -3,9 +3,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use common\components\LanguageWidget;
 use yii\db\Query;
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -14,7 +16,7 @@ AppAsset::register($this);
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= Yii::$app->language ?>">
 
 <head>
     <meta charset="utf-8">
@@ -43,7 +45,8 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<?php $static_infos =  (new Query())->from('static_info')->one()?>
+<?php
+$static_infos =  (new Query())->from('static_info')->one()?>
 
     <nav class="navbar-fixed">
 
@@ -83,7 +86,7 @@ AppAsset::register($this);
 
                         <li>
                             <a href="#">
-                                Katalog
+                                <?= Yii::t('app', 'Katalog') ?>
                                 <span class="open-dropdown">
                                     <i class="fa fa-angle-down"></i>
                                 </span>
@@ -100,7 +103,7 @@ AppAsset::register($this);
                                                 foreach ($categories as $category){
 ?>
                                                 <div class="col-sm-3 col-xs-6">
-                                                    <a href="/category/view?id=<?=$category['id']?>">
+                                                    <a href="<?= Url::to('/category/view') ?>?id=<?=$category['id']?>">
                                                         <figure>
                                                             <i class="f-icon f-icon-<?=$category['category_icon']?>">
                                                             </i>
@@ -118,9 +121,12 @@ AppAsset::register($this);
                                 </div> <!--/navbar-box-->
                             </div> <!--/navbar-dropdown-->
                         </li>
-                        <li><a href="/site/contacts"><?= Yii::t('app', 'Kontaktlar') ?></a></li>
-                        <li><a href="/site/news"><?= Yii::t('app', 'Maqolalar') ?></a></li>
-                        <li><a href="/site/video-news"><?= Yii::t('app', 'Video maqolalar') ?></a></li>
+                        <li><a href="<?= Url::to('/site/contacts') ?>"><?= Yii::t('app', 'Kontaktlar') ?></a></li>
+                        <li><a href="<?= Url::to('/site/news') ?>"><?= Yii::t('app', 'Публикации') ?></a></li>
+                        <li><a href="<?= Url::to('/site/video-news') ?>"><?= Yii::t('app', 'Видеоблог') ?></a></li>
+
+                            <?= LanguageWidget::widget() ?>
+
                         <li>
                             <div style="">
                                 <a style="display: inline-block; background-color: #ffbb00; padding: 7px; border-radius: 2px; color: white" href="tel:<?= $static_infos['phone_number'] ?>"><?= $static_infos['phone_number'] ?></a>
@@ -174,9 +180,9 @@ AppAsset::register($this);
                 <div class="col-sm-4 col-md-2">
                     <h5><?= Yii::t('app', 'Bizning kompaniya') ?></h5>
                     <ul>
-                        <li><a href="/site/about"><?= Yii::t('app', 'Biz haqimizda') ?></a></li>
-                        <li><a href="/site/news"><?= Yii::t('app', 'Yangiliklar') ?></a></li>
-                        <li><a href="/site/contacts"><?= Yii::t('app', 'Kontaktlarimiz') ?></a></li>
+                        <li><a href="<?= Url::to('/site/about') ?>"><?= Yii::t('app', 'Biz haqimizda') ?></a></li>
+                        <li><a href="<?= Url::to('/site/news') ?>"><?= Yii::t('app', 'Yangiliklar') ?></a></li>
+                        <li><a href="<?= Url::to('/site/contacts') ?>"><?= Yii::t('app', 'Kontaktlarimiz') ?></a></li>
                     </ul>
                 </div>
 

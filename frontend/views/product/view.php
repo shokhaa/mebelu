@@ -1,4 +1,10 @@
-<?php $url = Yii::$app->homeUrl.'mebelu/template/assets/images/'; ?>
+<?php
+
+use common\models\Product;
+use common\models\ProductImage;
+use yii\helpers\Url;
+
+$url = Yii::$app->homeUrl.'mebelu/template/assets/images/'; ?>
 
 <div class="page-loader"></div>
 
@@ -9,10 +15,11 @@
     <section class="main-header" style=" background-image:url(<?= $url ?>gallery-2.jpg)">
         <header>
             <div class="container">
-                <h1 class="h2 title"><?= $model->name ?></h1>
+                <h1 class="h2 title"><?= /** @var Product $model */
+                    $model->name ?></h1>
                 <ol class="breadcrumb breadcrumb-inverted">
-                    <li><a href="/site/index"><span class="icon icon-home"></span></a></li>
-                    <li><a class="active" href="/product/view?id=<?= $model->id ?>"><?= Yii::t('app', 'Mahsulot') ?></a></li>
+                    <li><a href="<?= Url::to('/site/index') ?>"><span class="icon icon-home"></span></a></li>
+                    <li><a class="active" href="<?= Url::to('/product/view') ?>?id=<?= $model->id ?>"><?= Yii::t('app', 'Mahsulot') ?></a></li>
                 </ol>
             </div>
         </header>
@@ -37,7 +44,7 @@
                                             <?php
                                             if ($model->status == 4 ){
                                                 $price =strval( $model->price - $model->price*($model->sales_procent/100));
-                                                echo $price." "."so'm".'<small>'. $model->price ." "."so'm".'</small>';
+                                                echo $price." ".Yii::t('app', 'so\'m').'<small>'. $model->price ." ".Yii::t('app', 'so\'m').'</small>';
                                             }
                                             else {
                                                  echo $model->price." so'm";

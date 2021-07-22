@@ -37,7 +37,9 @@ $this->title = Yii::t('app', 'Products');
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+echo    Yii::$app->language;
+    ?>
 
 
 </div>

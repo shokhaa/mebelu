@@ -1,6 +1,10 @@
 
 <?php
+
+use common\models\Category;
 use common\models\Product;
+use common\models\ProductImage;
+use yii\helpers\Url;
 
 $url = Yii::$app->homeUrl.'mebelu/template/assets/images/';
 /* @var $model common\models\Category */
@@ -35,6 +39,7 @@ $this->title = $model->name;
         <div class="row">
 
             <?php
+            /** @var Category $category */
             for($i = 0; $i < count($category); $i++){
                 $product = Product::findOne($category[$i]->product_id);
                 if ($product){
@@ -59,7 +64,7 @@ $this->title = $model->name;
                                 </a>
                             </div>
                             <div class="text">
-                                <h2 class="title h4"><a href="/product/view?id=<?= $product->id?>"><?=$product->name?></a></h2>
+                                <h2 class="title h4"><a href="<?= \yii\helpers\Url::to('/product/view') ?>?id=<?= $product->id?>"><?=$product->name?></a></h2>
                                 <sup><?=$product->price?> <?= Yii::t('app', 'so\'m') ?></sup>
                             </div>
                         </div>
@@ -104,7 +109,7 @@ $this->title = $model->name;
                         </div>
                         <div class="popup-cell">
                             <div class="popup-buttons">
-                                <a href="/product/view?id=<?=$product->id?>"><span class="icon icon-eye"></span> <span class="hidden-xs"><?= Yii::t('app', 'Ko\'proq ma\'lumot') ?></span></a>
+                                <a href="<?= Url::to('/product/view') ?>?id=<?=$product->id?>"><span class="icon icon-eye"></span> <span class="hidden-xs"><?= Yii::t('app', 'Ko\'proq ma\'lumot') ?></span></a>
                               
                             </div>
                         </div>

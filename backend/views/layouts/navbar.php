@@ -1,5 +1,6 @@
 <?php
 
+use common\components\LanguageWidget;
 use yii\helpers\Html;
 
 ?>
@@ -14,7 +15,7 @@ use yii\helpers\Html;
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
+        <?= LanguageWidget::widget() ?>
         <li class="nav-item">
             <?= Html::a('<i class="fas fa-sign-out-alt"></i>', ['/site/logout'], ['data-method' => 'post', 'class' => 'nav-link']) ?>
         </li>

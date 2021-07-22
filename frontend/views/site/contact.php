@@ -1,6 +1,8 @@
+<?php
 
+use yii\helpers\Url;
 
-
+?>
 
 
 <div class="wrapper">
@@ -11,10 +13,10 @@
     <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
         <header>
             <div class="container text-center">
-                <h2 class="h2 title">Kontakt</h2>
+                <h2 class="h2 title"><?= Yii::t('app', 'Kontakt') ?></h2>
                 <ol class="breadcrumb breadcrumb-inverted">
-                    <li><a href="/site/index"><span class="icon icon-home"></span></a></li>
-                    <li><a class="active" href="/site/contact">Kontakt</a></li>
+                    <li><a href="<?= Url::to('/site/index') ?>"><span class="icon icon-home"></span></a></li>
+                    <li><a class="active" href="<?= Url::to('/site/contact') ?>"><?= Yii::t('app', 'Kontakt') ?></a></li>
                 </ol>
             </div>
         </header>
@@ -42,7 +44,7 @@
                                     <figure class="text-center">
                                         <span class="icon icon-map-marker"></span>
                                         <figcaption>
-                                            <strong>Bizni qayerdan topasiz?</strong>
+                                            <strong><?= Yii::t('app', 'Bizni qayerdan topasiz?') ?></strong>
                                             <span>200 12th Ave, New York, <br />NY 10001, USA</span>
                                         </figcaption>
                                     </figure>
@@ -51,7 +53,7 @@
                                     <figure class="text-center">
                                         <span class="icon icon-phone"></span>
                                         <figcaption>
-                                            <strong>Call us</strong>
+                                            <strong><?= Yii::t('app', 'Call us') ?></strong>
                                             <span>
                                                     <strong>T</strong> +1 222 333 4444 <br />
                                                     <strong>F</strong> +1 222 333 5555
@@ -63,7 +65,7 @@
                                     <figure class="text-center">
                                         <span class="icon icon-clock"></span>
                                         <figcaption>
-                                            <strong>Working hours</strong>
+                                            <strong><?= Yii::t('app', 'Working hours')?></strong>
                                             <span>
                                                     <strong>Mon</strong> - Sat: 10 am - 6 pm <br />
                                                     <strong>Sun</strong> 12pm - 2 pm
@@ -77,7 +79,7 @@
                         <div class="banner">
                             <div class="row">
                                 <div class="col-md-offset-1 col-md-10 text-center">
-                                    <h2 class="title">Send an email</h2>
+                                    <h2 class="title"><?= Yii::t('app', 'Send an email')?></h2>
                                     <p>
                                         Thanks for your interest in Mobel Theme. We believe in creativity as one of the major forces of progress.
                                         Please use this form if you have any questions about our products and we'll get back with you very soon.

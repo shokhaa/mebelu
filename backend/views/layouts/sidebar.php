@@ -1,6 +1,7 @@
 <?php
 
 use hail812\adminlte\widgets\Menu;
+use yii\helpers\Url;
 
 ?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -14,7 +15,7 @@ use hail812\adminlte\widgets\Menu;
                 <img src="<?=$assetDir?>/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="/category" class="d-block">Admin</a>
+                <a href="<?= Url::to('/category') ?>" class="d-block"><?= Yii::t('app', 'Admin') ?></a>
             </div>
         </div>
 
@@ -24,13 +25,13 @@ use hail812\adminlte\widgets\Menu;
             echo Menu::widget([
                 'items' => [
 
-                    ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
-                    ['label' => 'Category', 'icon' => 'fas fa-tree', 'url' => ['/category'],],
-                    ['label' => 'Product', 'icon' => 'fas fa-couch', 'url' => ['/product']],
-                    ['label' => 'Product Image', 'icon' => 'fas fa-images', 'url' => ['/product-image']],
-                    ['label' => 'Category Product', 'icon' => 'fas fa-users', 'url' => ['/category-product']],
-                    ['label' => 'Static Info', 'icon' => 'fas fa-info-circle', 'url' => ['/static-info']],
-                    ['label' => 'Slider', 'icon' => 'fas fa-stream', 'url' => ['/slider']],
+                    ['label' => Yii::t('app', 'Login'), 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
+                    ['label' => Yii::t('app', 'Category'), 'icon' => 'fas fa-tree', 'url' => ['/category'],],
+                    ['label' => Yii::t('app', 'Product'), 'icon' => 'fas fa-couch', 'url' => ['/product']],
+                    ['label' => Yii::t('app', 'Product Image'), 'icon' => 'fas fa-images', 'url' => ['/product-image']],
+                    ['label' => Yii::t('app', 'Category Product'), 'icon' => 'fas fa-users', 'url' => ['/category-product']],
+                    ['label' => Yii::t('app', 'Static Info'), 'icon' => 'fas fa-info-circle', 'url' => ['/static-info']],
+                    ['label' => Yii::t('app', 'Slider'), 'icon' => 'fas fa-stream', 'url' => ['/slider']],
 
 
                 ],
