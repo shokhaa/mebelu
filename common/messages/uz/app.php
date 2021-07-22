@@ -103,4 +103,9 @@ return [
     'Working hours' => 'Ish vaqtlari',
     'Видеоблог' => 'VideoBlog',
     'Публикации' => 'Maqolalar',
+    'Product' => 'Mahsulot',
+    'Product Image' => 'Mahsulot Rasmi',
+    'Category Product' => 'Mahsulot Kategoriyasi',
+    'Static Info' => 'Statik ma\'lumotlar',
+    'Slider' => 'Slayder'
 ];
