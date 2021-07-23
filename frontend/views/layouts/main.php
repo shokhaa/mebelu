@@ -40,6 +40,34 @@ AppAsset::register($this);
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c1aa91e4-4c0e-4c25-a6c5-d03d03c70273&lang=ru_RU" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init(){
+            var myMap = new ymaps.Map("map", {
+                center: [41.270390, 69.245214],
+                zoom: 15
+            }, {
+                searchControlProvider: 'yandex#search'
+            });
+            var myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                balloonContentBody: [
+                    '<address>',
+                    '<strong>Lusiana mebel</strong>',
+                    '<br/>',
+                    'Адрес: Toshkent, Qushbegi koʻchasi, 18',
+                    '<br/>',
+                    'За дополнительной информацией, видеть: <a href="https://mebelu.uz">https://mebelu.uz</a>',
+                    '</address>'
+                ].join('')
+            }, {
+                preset: 'islands#redDotIcon'
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>
     <?php $this->head() ?>
 </head>
 <body>
@@ -145,7 +173,26 @@ $static_infos =  (new Query())->from('static_info')->one()?>
 
             <?= $content ?>
         </div>
-
+<section class="products" style="background-color: #ffbb00">
+    <div class="container  d-flex justify-content-center">
+        <div style="width: 210px; margin-right: 15px;" class="col-md-2">
+            <a href=""><img style="width: 210px; height: 121px" src="<?= $url."blum.jpg" ?>" alt="brand image"></a>
+        </div>
+        <div style="width: 210px; margin-right: 15px;" class="col-md-2">
+            <a href=""><img style="width: 210px; height: 121px" src="<?= $url."samet.jpg" ?>" alt="brand image"></a>
+        </div>
+        <div style="width: 210px; margin-right: 15px;" class="col-md-2">
+            <a href=""><img style="width: 210px; height: 121px" src="<?= $url."starax.jpg" ?>" alt="brand image"></a>
+        </div>
+        <div style="width: 210px; margin-right: 15px;" class="col-md-2">
+            <a href=""><img style="width: 210px; height: 121px" src="<?= $url."hafele.jpg" ?>" alt="brand image"></a>
+        </div>
+        <div style="width: 210px;" class="col-md-2">
+            <a href=""><img style="width: 210px; height: 121px" src="<?= $url."hettich.jpg" ?>" alt="brand image"></a>
+        </div>
+    </div>
+</section>
+<div id="map" style="width: 100%; height: 400px" class="center"></div>
 <footer>
     <div class="container">
 

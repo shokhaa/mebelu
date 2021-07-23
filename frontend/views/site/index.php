@@ -460,23 +460,6 @@ $url = Yii::$app->homeUrl . "mebelu/template/assets/images/"; ?>
 
 
 </section>
-<section class="products" style="background-color: #ffbb00">
-<div class="container  d-flex justify-content-center">
-    <div style="width: 210px; margin-right: 15px;" class="col-md-2">
-        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."blum.jpg" ?>" alt="brand image"></a>
-    </div>
-    <div style="width: 210px; margin-right: 15px;" class="col-md-2">
-        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."samet.jpg" ?>" alt="brand image"></a>
-    </div>
-    <div style="width: 210px; margin-right: 15px;" class="col-md-2">
-        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."starax.jpg" ?>" alt="brand image"></a>
-    </div>
-    <div style="width: 210px; margin-right: 15px;" class="col-md-2">
-        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."hafele.jpg" ?>" alt="brand image"></a>
-    </div>
-    <div style="width: 210px;" class="col-md-2">
-        <a href=""><img style="width: 210px; height: 121px" src="<?= $url."hettich.jpg" ?>" alt="brand image"></a>
-    </div>
-</div>
-</section>
+
+
 
