@@ -150,8 +150,7 @@ $static_infos =  (new Query())->from('static_info')->one()?>
                             </div> <!--/navbar-dropdown-->
                         </li>
                         <li><a href="<?= Url::to('/site/contacts') ?>"><?= Yii::t('app', 'Kontaktlar') ?></a></li>
-                        <li><a href="<?= Url::to('/site/news') ?>"><?= Yii::t('app', 'Публикации') ?></a></li>
-                        <li><a href="<?= Url::to('/site/video-news') ?>"><?= Yii::t('app', 'Видеоблог') ?></a></li>
+
 
                             <?= LanguageWidget::widget() ?>
 
@@ -226,8 +225,6 @@ $static_infos =  (new Query())->from('static_info')->one()?>
                 <div class="col-sm-4 col-md-2">
                     <h5><?= Yii::t('app', 'Bizning kompaniya') ?></h5>
                     <ul>
-                        <li><a href="<?= Url::to('/site/about') ?>"><?= Yii::t('app', 'Biz haqimizda') ?></a></li>
-                        <li><a href="<?= Url::to('/site/news') ?>"><?= Yii::t('app', 'Yangiliklar') ?></a></li>
                         <li><a href="<?= Url::to('/site/contacts') ?>"><?= Yii::t('app', 'Kontaktlarimiz') ?></a></li>
                     </ul>
                 </div>
