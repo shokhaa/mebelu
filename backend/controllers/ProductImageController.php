@@ -104,7 +104,7 @@ class ProductImageController extends Controller
                 $model->product_id = $id;
             }
             $model->save(false);
-            return $this->redirect(['index', 'id' => $model->id]);
+            return $this->redirect(['product/view', 'id' => $model->product_id]);
         }
 
         return $this->render('create', [
