@@ -45,7 +45,7 @@ use yii\helpers\Url;
                                         <span class="icon icon-map-marker"></span>
                                         <figcaption>
                                             <strong><?= Yii::t('app', 'Bizni qayerdan topasiz?') ?></strong>
-                                            <span>200 12th Ave, New York, <br />NY 10001, USA</span>
+                                            <span>улица Кушбеги, 18 <br> Яккасарайский район, Ташкент, Узбекистан</span>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -55,8 +55,8 @@ use yii\helpers\Url;
                                         <figcaption>
                                             <strong><?= Yii::t('app', 'Call us') ?></strong>
                                             <span>
-                                                    <strong>T</strong> +1 222 333 4444 <br />
-                                                    <strong>F</strong> +1 222 333 5555
+                                                     +998 99 794 77 44 <br />
+                                                     +998 99 921 67 41
                                                 </span>
                                         </figcaption>
                                     </figure>
@@ -76,57 +76,6 @@ use yii\helpers\Url;
                             </div>
                         </div>
 
-                        <div class="banner">
-                            <div class="row">
-                                <div class="col-md-offset-1 col-md-10 text-center">
-                                    <h2 class="title"><?= Yii::t('app', 'Send an email')?></h2>
-                                    <p>
-                                        Thanks for your interest in Mobel Theme. We believe in creativity as one of the major forces of progress.
-                                        Please use this form if you have any questions about our products and we'll get back with you very soon.
-                                    </p>
-
-                                    <div class="contact-form-wrapper">
-
-                                        <a class="btn btn-clean open-form" data-text-open="Contact us via form" data-text-close="Close form">Contact us via form</a>
-
-                                        <div class="contact-form clearfix">
-                                            <form id="sendmail" name="sendmail" action="sendmail.php" method="post">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input id="Name" name="Name" type="text" value="" class="form-control" placeholder="Your name" >
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input id="Email" name="Email" type="email" value="" class="form-control" placeholder="Your email" >
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <input id="Subject" name="Subject" type="text" value="" class="form-control" placeholder="Subject" >
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <textarea id="Comment" name="Comment" class="form-control" placeholder="Your message" rows="10"></textarea>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 text-center">
-                                                        <input type="submit" class="btn btn-clean" value="Send message" />
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
 
 
                     </div>
