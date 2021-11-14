@@ -15,7 +15,7 @@ class m210430_091348_create_user extends Migration
         $this->insert('user', [
             'username' => 'admin',
             'auth_key' => Yii::$app->security->generateRandomString(),
-            'password_hash' => Yii::$app->security->generatePasswordHash("123456"),
+            'password_hash' => Yii::$app->security->generatePasswordHash("adm1nmebelu"),
             'password_reset_token' => NULL,
             'email' => 'admin@gmail.com',
             'created_at' => time(),
