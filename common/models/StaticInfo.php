@@ -38,7 +38,7 @@ class StaticInfo extends ActiveRecord
         return [
             [['address', 'working_time'], 'string'],
             [['phone_number'], 'match', 'pattern' => '/((\+998)|0)[-]?[0-9]{9}/', 'message' => 'Telefon raqam +998999999999 ko\'rinishida bo\'lishi lozim.'],
-            [['logo_photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'jpg, png, jpeg'],
+            [['logo_photo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg, png, jpeg'],
             [['email'], 'email'],
             [['phone_number', 'location', 'logo_photo', 'instagram_profile', 'telegram_profile', 'facebook_profile', 'youtube_profile', 'email'], 'string', 'max' => 255],
         ];

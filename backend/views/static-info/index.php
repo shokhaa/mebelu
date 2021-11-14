@@ -14,9 +14,7 @@ $this->title = 'Static Infos';
 
 
 
-    <p>
-        <?= Html::a('Create Static Info', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
