@@ -114,9 +114,10 @@ class StaticInfoController extends Controller
 
             if (isset($logoFile->size)){
                 $logoFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$logoFile->baseName.'.'.$logoFile->extension);
+                $model->logo_photo = $logoFile->baseName.'.'.$logoFile->extension;
+
             }
 
-            $model->logo_photo = $logoFile->baseName.'.'.$logoFile->extension;
 
             $model->save(false);
             return $this->redirect(['index', 'id' => $model->id]);
