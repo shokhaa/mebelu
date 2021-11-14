@@ -28,7 +28,6 @@ use yii\helpers\Url;
                     ['label' => Yii::t('app', 'Login'), 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
                     ['label' => Yii::t('app', 'Category'), 'icon' => 'fas fa-tree', 'url' => ['/category'],],
                     ['label' => Yii::t('app', 'Product'), 'icon' => 'fas fa-couch', 'url' => ['/product']],
-                    ['label' => Yii::t('app', 'Product Image'), 'icon' => 'fas fa-images', 'url' => ['/product-image']],
                     ['label' => Yii::t('app', 'Category Product'), 'icon' => 'fas fa-users', 'url' => ['/category-product']],
                     ['label' => Yii::t('app', 'Static Info'), 'icon' => 'fas fa-info-circle', 'url' => ['/static-info']],
                     ['label' => Yii::t('app', 'Slider'), 'icon' => 'fas fa-stream', 'url' => ['/slider']],
