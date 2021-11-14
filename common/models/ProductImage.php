@@ -15,6 +15,7 @@ class ProductImage extends \yii\db\ActiveRecord
 {
 
     public $imageFile;
+
     /**
      * {@inheritdoc}
      */
@@ -31,7 +32,7 @@ class ProductImage extends \yii\db\ActiveRecord
         return [
             [['image_url', 'product_id'], 'required'],
             [['product_id'], 'integer'],
-            [['image_url'], 'file', 'skipOnEmpty' => false, 'extensions' => 'jpg,png,gif' ],
+            [['image_url'], 'file', 'skipOnEmpty' => false, 'extensions' => 'jpg,png,gif'],
             [['image_url'], 'string', 'max' => 255],
             [['image_url'], 'unique'],
         ];
@@ -48,9 +49,12 @@ class ProductImage extends \yii\db\ActiveRecord
             'product_id' => Yii::t('app', 'Product ID'),
         ];
     }
-    public function getProduct(){
+
+    public function getProduct()
+    {
         return $this->hasOne(Product::className(), ['id' => 'product_id']);
     }
+
     public function upload()
     {
         if ($this->validate()) {

@@ -5,6 +5,7 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Product */
+$url = 'http://mebelu.uz/'.'mebelu/template/assets/images/'; ?>
 
 $this->title = $model->name;
 \yii\web\YiiAsset::register($this);
@@ -35,5 +36,11 @@ $this->title = $model->name;
             'description:ntext',
         ],
     ]) ?>
+
+
+    <?php foreach ($images as $image) : ?>
+
+        <img src="<?=$url. $image['image_url'] ?>" alt="" width="100" height="100">
+    <?php endforeach; ?>
 
 </div>
