@@ -17,14 +17,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'image_url')->fileInput() ?>
 
-    <?= $form->field($model, 'product_id')->widget(Select2::classname(), [
-        'data' => ArrayHelper::map(Product::find()->all(), 'id', 'name'),
-        'language' => 'en',
-        'options' => ['placeholder' => Yii::t('app', 'Select ...')],
-        'pluginOptions' => [
-            'allowClear' => true
-        ],
-    ])
+
+    <?php
+
+    if (!$id) {
+
+        echo $form->field($model, 'product_id')->widget(Select2::classname(), [
+            'data' => ArrayHelper::map(Product::find()->all(), 'id', 'name'),
+            'language' => 'en',
+            'options' => ['placeholder' => Yii::t('app', 'Select ...')],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+    }
+
     ?>
 
     <div class="form-group">

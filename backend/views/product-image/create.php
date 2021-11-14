@@ -14,6 +14,7 @@ $this->title = Yii::t('app', 'Create Product Image');
 
     <?= $this->render('_form', [
         'model' => $model,
+        'id' => $id
     ]) ?>
 
 </div>

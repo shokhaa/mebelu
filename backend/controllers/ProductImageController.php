@@ -89,23 +89,28 @@ class ProductImageController extends Controller
 
         return $this->render('upload', ['model' => $model]);
     }
-    public function actionCreate()
+
+    public function actionCreate($id)
     {
         $model = new ProductImage();
 
         if ($model->load(Yii::$app->request->post())) {
             $imageFile = UploadedFile::getInstance($model, 'image_url');
-            if (isset($imageFile->size)){
-                $imageFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$imageFile->baseName.'.'.$imageFile->extension);
+            if (isset($imageFile->size)) {
+                $name = uniqid('', true);
+
+                $imageFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/') . $name . '.' . $imageFile->extension);
+                $model->image_url = $name . '.' . $imageFile->extension;
+                $model->product_id = $id;
             }
-            $model->image_url = $imageFile->baseName.'.'.$imageFile->extension;
             $model->save(false);
             return $this->redirect(['index', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model
-            ]);
+            'model' => $model,
+            'id' => $id,
+        ]);
     }
 
     /**
@@ -120,10 +125,10 @@ class ProductImageController extends Controller
         $model = $this->findModel($id);
         if ($model->load(Yii::$app->request->post())) {
             $imageFile = UploadedFile::getInstance($model, 'image_url');
-            if (isset($imageFile->size)){
-                $imageFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/').$imageFile->baseName.'.'.$imageFile->extension);
+            if (isset($imageFile->size)) {
+                $imageFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/') . $imageFile->baseName . '.' . $imageFile->extension);
             }
-            $model->image_url = $imageFile->baseName.'.'.$imageFile->extension;
+            $model->image_url = $imageFile->baseName . '.' . $imageFile->extension;
             $model->save(false);
             return $this->redirect(['index', 'id' => $model->id]);
         }

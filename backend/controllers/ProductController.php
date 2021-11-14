@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\Category;
 use common\models\CategoryProduct;
+use common\models\ProductImage;
 use Yii;
 use common\models\Product;
 use common\models\ProductSearch;
@@ -11,6 +12,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -86,7 +88,21 @@ class ProductController extends Controller
         $categories = new Category();
 //        $categories = [];
 
+
+
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $imageFile = UploadedFile::getInstance($model, 'image_url');
+
+            if (isset($imageFile->size)) {
+                $productImage = new ProductImage();
+                $name = uniqid('', true);
+                $imageFile->saveAs(Yii::getAlias('@frontend/web/mebelu/template/assets/images/') . $name . '.' . $imageFile->extension);
+                $productImage->image_url = $name . '.' . $imageFile->extension;
+                $productImage->product_id  = $model->id;
+                $productImage->save(false);
+            }
+
             return $this->redirect(['index', 'id' => $model->id]);
         }
 
